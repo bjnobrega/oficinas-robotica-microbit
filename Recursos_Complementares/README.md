@@ -18,6 +18,16 @@ Esta pasta reúne materiais adicionais de suporte pedagógico, referências acad
 - **[`04_Sugestoes_Atividades_Interdisciplinares.md`](04_Sugestoes_Atividades_Interdisciplinares.md)**
   - Propostas de projetos transversais integrando a robótica com Geografia, História, Biologia, Língua Portuguesa, Arte e Meio Ambiente.
 
+- **[`05_Guias_Tecnicos_Troubleshooting_e_Hardware.md`](05_Guias_Tecnicos_Troubleshooting_e_Hardware.md)**
+  - Guia avançado de manutenção de hardware, firmware da placa Micro:bit, restauração de placas travadas em modo `MAINTENANCE` e solução de problemas de conexão WebUSB.
+
+- **`troubleshooting/`**
+  - Pasta com manuais em PDF e arquivo de restauração de fábrica (`.hex`):
+    - `Update_Firmware_Microbit.pdf`
+    - `Troubleshooting_MAINTENANCE_Mode.pdf`
+    - `Troubleshooting_WebUSB_Downloads.pdf`
+    - `Firmware_Restore_v0255.hex`
+
 ---
 
 ## 📄 Licença

@@ -74,7 +74,9 @@ oficinas-robotica-microbit/
 │   ├── 01_Desafios_e_Extensoes_das_Oficinas.md
 │   ├── 02_Guias_Apoio_e_Gestao_Docente.md
 │   ├── 03_Referencias_Bibliograficas_e_Leituras.md
-│   └── 04_Sugestoes_Atividades_Interdisciplinares.md
+│   ├── 04_Sugestoes_Atividades_Interdisciplinares.md
+│   ├── 05_Guias_Tecnicos_Troubleshooting_e_Hardware.md
+│   └── troubleshooting/
 └── README.md (este arquivo)
 ```
 
