@@ -34,7 +34,7 @@ O e-book é voltado para **docentes da educação básica** (Anos Finais do Ensi
 ## 📂 Estrutura do Repositório
 
 ```
-officinas-robotica-microbit/
+oficinas-robotica-microbit/
 ├── Oficina_00_Formacao_Multiplicadoras/
 │   ├── README.md
 │   ├── Oficina00_Cap1_Fundamentos_Eletricidade.pdf
