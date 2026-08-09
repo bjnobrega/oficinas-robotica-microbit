@@ -70,7 +70,11 @@ oficinas-robotica-microbit/
 ├── Produto_Educacional_Ebook/
 │   └── README.md
 ├── Recursos_Complementares/
-│   └── README.md
+│   ├── README.md
+│   ├── 01_Desafios_e_Extensoes_das_Oficinas.md
+│   ├── 02_Guias_Apoio_e_Gestao_Docente.md
+│   ├── 03_Referencias_Bibliograficas_e_Leituras.md
+│   └── 04_Sugestoes_Atividades_Interdisciplinares.md
 └── README.md (este arquivo)
 ```
 
