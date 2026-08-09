@@ -82,16 +82,11 @@ Nesta expedição, o ruído dos dados físicos provocado pela estrutura do ambie
 
 ## 📂 Arquivos do Repositório
 
-### 📁 Pasta `Oficina_01_Oriente-se_Bussola_Digital`
+### 📁 Pasta `Oficina_01_Bussola_e_Telemetria`
 *   **`Oficina01_Guia_Professor.pdf`**: Documento de planejamento pedagógico passo a passo, incluindo cronograma detalhado de momentos, competências curriculares e critérios de avaliação.
 *   **`Oficina01_Ficha_Investigativa.pdf`**: Diário de bordo físico e roteiro de campo distribuído para preenchimento dos estudantes.
 *   **`Oficina01_Bussola.js`**: Arquivo com o código-fonte em JavaScript para calibração e condicional de pontos cardeais.
 *   **`README.md`**: Este guia rápido de orientação da oficina.
-
-### 📁 Pasta `projeto_original_bussola_microbit` (Códigos HTML e Mídia)
-*   `oficina1_roteiro_professor.html`: Guia interativo do professor, responsivo em HTML e otimizado para impressão/salvamento A4.
-*   `fichas_campo_navegacao.html`: Ficha de investigação em HTML, responsiva e otimizada para impressão/salvamento A4.
-*   `codigo_bussola_blocos.png`: Imagem da estrutura de lógica de blocos criada no MakeCode.
 
 ---
 
@@ -111,9 +106,7 @@ Investigativa) são de autoria original do projeto Meninas nas Exatas / UFRJ.
 
 ## 💻 Código da Bússola (JavaScript)
 
-```
-
-//javascript
+```javascript
 let graus = 0
 
 // Calibração do sensor magnético (exibe a mensagem "TILT TO FILL SCREEN" na primeira execução)
@@ -134,6 +127,7 @@ basic.forever(function () {
         basic.showString("O") // Oeste (225° a 315°)
     }
 })
+```
 
 ---
 

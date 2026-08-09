@@ -99,11 +99,11 @@ Nesta oficina, variações inesperadas na leitura da sonda — causadas por cone
 
 ## 📂 Arquivos do Repositório
 
-### 📁 Pasta `Oficina_02_DataLogger_Reacoes_Quimicas`
+### 📁 Pasta `Oficina_02_Quimica_Sensores_Temperatura`
 
 - **`Oficina02_Guia_Professor.pdf`**: Documento de planejamento pedagógico passo a passo, com cronograma detalhado, orientações de segurança, competências curriculares e critérios de avaliação.
 - **`Oficina02_Ficha_Investigativa.pdf`**: Diário de bordo das missões A Queda e A Escalada, com seções para hipóteses, registro de dados e retomada da hipótese.
-- - **`Oficina_02_data_logger.js`**: Código-fonte em JavaScript para leitura contínua da sonda DS18B20 e geração do gráfico serial no MakeCode.
+- **`Oficina_02_data_logger.js`**: Código-fonte em JavaScript para leitura contínua da sonda DS18B20 e geração do gráfico serial no MakeCode.
 - **`README.md`**: Este guia rápido de orientação da oficina.
 
 -----
@@ -118,27 +118,29 @@ O código JavaScript e os materiais pedagógicos (Guia do Professor e Ficha Inve
 
 > ⚠️ **Atenção:** Este código requer a instalação da extensão DS18B20 no MakeCode antes de ser colado. Consulte o Guia do Professor para o passo a passo de instalação da extensão.
 
-    // Leitura sob demanda (Interação)
-    input.onButtonPressed(Button.A, function () {
-        basic.showNumber(temp)
-        // Apaga a tela depois de mostrar
-        basic.clearScreen()
-    })
-    let temp = 0 //Cria a variável
-    serial.redirectToUSB()
-    // O "Motor" do Data Logger (Trabalho invisível)
-    basic.forever(function () {
-    
-        // 1. Lê a temperatura no pino correto (P0)
-        temp = dstemp.celsius(DigitalPin.P1)
-    
-        // 2. Envia para gerar o gráfico no PC
-        serial.writeValue("Temp", temp) // Joga os dados para a porta serial "USB"
-        basic.pause(200) // Pequena pausa
-        basic.showIcon(IconNames.SmallDiamond) 
-        basic.clearScreen() // Apaga a tela depois de mostrar
-        basic.pause(200) // Pequena pausa
-    })
+```javascript
+// Leitura sob demanda (Interação)
+input.onButtonPressed(Button.A, function () {
+    basic.showNumber(temp)
+    // Apaga a tela depois de mostrar
+    basic.clearScreen()
+})
+let temp = 0 //Cria a variável
+serial.redirectToUSB()
+// O "Motor" do Data Logger (Trabalho invisível)
+basic.forever(function () {
+
+    // 1. Lê a temperatura no pino correto (P0)
+    temp = dstemp.celsius(DigitalPin.P1)
+
+    // 2. Envia para gerar o gráfico no PC
+    serial.writeValue("Temp", temp) // Joga os dados para a porta serial "USB"
+    basic.pause(200) // Pequena pausa
+    basic.showIcon(IconNames.SmallDiamond) 
+    basic.clearScreen() // Apaga a tela depois de mostrar
+    basic.pause(200) // Pequena pausa
+})
+```
 
 ---
 

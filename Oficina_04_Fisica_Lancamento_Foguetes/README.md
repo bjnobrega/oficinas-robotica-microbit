@@ -89,7 +89,7 @@ Nesta oficina, nem tudo vai funcionar conforme o planejado — e este é exatame
 
 ## 📂 Arquivos do Repositório
 
-### 📁 Pasta `Oficina_04_Foguete_Telemetria`
+### 📁 Pasta `Oficina_04_Fisica_Lancamento_Foguetes`
 - **`Oficina04_Guia_Professor.pdf`**: Documento de planejamento pedagógico passo a passo, com cronograma detalhado, orientações de segurança, montagem do foguete, competências curriculares e critérios de avaliação.
 - **`Oficina04_Ficha_Investigativa.pdf`**: Diário de bordo do lançamento, com seções para hipóteses, registro das fases do voo, análise do gráfico e retomada da hipótese.
 - **`Oficina04_codigo_foguete.js`**: Código-fonte em JavaScript para a placa embarcada no foguete — leitura do acelerômetro e envio de dados via rádio.
@@ -118,6 +118,7 @@ O código JavaScript e os materiais pedagógicos (Guia do Professor e Ficha Inve
 
 ## 💻 Código da Placa Embarcada — Foguete (JavaScript)
 
+```javascript
 let aceleracao_z = 0
 
 // Configura a comunicação por rádio.
@@ -141,16 +142,19 @@ basic.forever(function () {
 
   // Pequena pausa entre as leituras.
   basic.pause(20)
-  })
+})
+```
 
 ## 💻 Código da Estação de Solo (JavaScript)
 
+```javascript
 radio.onReceivedValue(function (name, value) {
   serial.writeValue(name, value)
   led.toggle(2, 2)
-  })
+})
 radio.setGroup(255)
 basic.showIcon(IconNames.Happy)
+```
 
 ---
 
