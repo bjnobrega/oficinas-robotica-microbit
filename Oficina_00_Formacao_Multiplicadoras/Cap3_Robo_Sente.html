@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capítulo 3 — Ensinando o Robô a Sentir · Formação de Multiplicadoras</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:#616D59; --secondary:#C1D0AD; --text:#1A1A1A; --bg:#FBFCFA;
+    --aux1:#E8EECB; --aux2:#EDF2D8; --border:#C8D4B8;
+    --azul:#3B82F6; --verde:#10B981; --roxo:#8B5CF6; --rosa:#EC4899;
+    --amarelo:#F59E0B; --laranja:#F97316;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Montserrat',system-ui,sans-serif; background:#DDD8D0; color:var(--text); font-size:11pt; line-height:1.5; text-align:justify; -webkit-font-smoothing:antialiased; }
+  .page { width:210mm; height:297mm; margin:0 auto; padding:10mm 8mm 14mm; background:var(--bg); position:relative; overflow:hidden; }
+  @media screen { body { padding:20px 0; } .page { box-shadow:0 4px 30px rgba(0,0,0,0.18); margin-bottom:30px; } }
+  @media print {
+    @page { size:A4; margin:0; }
+    body { background:white; }
+    .page { margin:0; padding:10mm 8mm 14mm; box-shadow:none; page-break-after:always; break-after:page; height:297mm; max-height:297mm; overflow:hidden; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .page:last-child { page-break-after:avoid; break-after:avoid; }
+    .no-print { display:none !important; }
+    .concept-card, .mission-card, .callout, .analogy, .gloss-item, .step-list li { page-break-inside:avoid; break-inside:avoid; }
+    .section-title { page-break-after:avoid; break-after:avoid; }
+  }
+  .header { display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+  .header-icon { font-size:32px; line-height:1; flex-shrink:0; }
+  .header-text h1 { font-family:'Bree Serif',Georgia,serif; font-size:1.25rem; font-weight:700; color:var(--primary); letter-spacing:-0.3px; }
+  .header-text p { font-size:9.5pt; color:var(--primary); opacity:0.75; margin-top:2px; }
+  hr { border:none; border-top:2px solid var(--primary); opacity:0.5; margin:8px 0 10px; }
+  .badge-row { display:flex; flex-wrap:wrap; justify-content:center; gap:5px; margin-bottom:10px; }
+  .badge { display:inline-flex; align-items:center; justify-content:center; background:var(--aux2); color:var(--primary); font-size:8.5pt; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid var(--secondary); white-space:nowrap; }
+  .section-title { font-family:'Bree Serif',Georgia,serif; font-size:1rem; font-weight:700; color:var(--primary); background:var(--aux1); padding:4px 10px; border-radius:6px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .concept-grid { display:grid; gap:8px; }
+  .concept-grid.col2 {
+    background:#F5EFE6;
+    border:1px solid #E3D7C2;
+    border-radius:10px;
+    padding:6px;
+  }
+  .col1 { grid-template-columns:1fr; }
+  .col2 { grid-template-columns:1fr 1fr; }
+  .col3 { grid-template-columns:1fr 1fr 1fr; }
+  .concept-card { border-radius:10px; padding:8px 10px; border:1.5px solid var(--border); display:flex; flex-direction:column; }
+  .cc-primary { background:var(--aux2); border-color:var(--secondary); }
+  .cc-azul { background:#EFF6FF; border-color:#BFDBFE; }
+  .cc-verde { background:#F0FDF4; border-color:#BBF7D0; }
+  .cc-amarelo { background:#FFFBEB; border-color:#FDE68A; }
+  .cc-laranja { background:#FFF7ED; border-color:#FED7AA; }
+  .cc-roxo { background:#FAF5FF; border-color:#DDD6FE; }
+  .cc-head { display:flex; align-items:center; gap:6px; margin-bottom:4px; min-height:28px; }
+  .cc-icon { font-size:18px; line-height:1; flex-shrink:0; }
+  .cc-title { font-weight:800; font-size:10.5pt; color:var(--text); line-height:1.2; }
+  .cc-body { font-size:10pt; color:#374151; line-height:1.5; margin-bottom:4px; }
+  .analogy { display:flex; align-items:flex-start; gap:5px; background:white; border:1px solid var(--border); border-radius:6px; padding:5px 8px; margin-top:auto; font-size:9.5pt; color:#4B5563; }
+  .analogy-icon { font-size:14px; flex-shrink:0; margin-top:1px; line-height:1.4; }
+  .callout { background:var(--aux2); border:1px solid var(--border); border-left:3px solid var(--primary); border-radius:0 6px 6px 0; padding:6px 10px; margin-bottom:8px; font-size:10pt; color:#334155; line-height:1.55; }
+  .callout strong { color:var(--text); font-weight:800; }
+  .flow { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:4px; margin-top:5px; }
+  .flow-step { background:var(--aux2); border:1.5px solid var(--border); border-radius:6px; padding:4px 8px; font-size:9pt; font-weight:700; color:var(--primary); white-space:nowrap; }
+  .flow-arrow { font-size:14pt; color:var(--secondary); font-weight:700; }
+  .ldr-state { border-radius:6px; padding:5px 8px; font-size:10pt; margin-bottom:4px; }
+  .ldr-light { background:#FFFBEB; border:1px solid #FDE68A; }
+  .ldr-dark  { background:var(--aux2); border:1px solid var(--secondary); }
+  .cond-block { border-left:3px solid var(--primary); padding:5px 9px; border-radius:0 6px 6px 0; font-size:10.5pt; margin-bottom:4px; background:#F6F7F2; border:1px solid var(--border); }
+  .cond-se    { border-left-color:#C026D3; background:#EDE9FE; }
+  .cond-senao { border-left-color:#16A34A; background:#F2FFF6; }
+  .code-box { background:var(--aux2); border:1.5px solid var(--secondary); border-radius:8px; padding:6px 10px; font-family:'Space Mono',monospace; font-size:9pt; line-height:1.8; color:var(--text); }
+  .cs-comment { color:#4A5443; }
+  .cs-keyword { color:#B05C5C; font-weight:700; }
+  .cs-value { color:#3A662C; }
+  .cs-var { color:var(--primary); }
+  .mission-card { border-radius:8px; border:1.5px solid var(--border); overflow:hidden; display:flex; }
+  .mission-num { width:36px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:14pt; color:white; }
+  .m5 .mission-num { background:var(--laranja); }
+  .mission-body { padding:6px 10px; flex:1; }
+  .mission-title { font-weight:800; font-size:10pt; margin-bottom:3px; }
+  .mission-body p { font-size:9pt; color:#44403C; margin-bottom:3px; line-height:1.4; }
+  .mission-tag { display:inline-block; font-size:8.5pt; font-weight:700; padding:1px 6px; border-radius:10px; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.3px; }
+  .tag-acao { background:#EFF6FF; color:var(--azul); }
+  .tag-learn { background:var(--aux2); color:var(--primary); }
+  .glossario-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:5px; margin-top:3px; }
+  .gloss-item { background:white; border:1px solid var(--border); border-radius:6px; padding:6px 8px; font-size:9pt; line-height:1.35; text-align:left; }
+  .gloss-item > strong:first-child { color:var(--primary); display:block; margin-bottom:2px; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; position:relative; }
+  .two-col > div:first-child { border-right:1.5px solid var(--border); padding-right:12px; }
+  .phase-title { font-size:9.5pt; font-weight:800; color:var(--primary); margin:3px 0; }
+  .step-list { list-style:none; }
+  .step-list li { display:flex; gap:5px; align-items:flex-start; font-size:9pt; margin-bottom:3px; color:#334155; }
+  .step-num { width:18px; height:18px; border-radius:50%; background:var(--primary); color:white; font-weight:800; font-size:9pt; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+  .highlight { background:var(--aux1); padding:1px 4px; border-radius:3px; font-weight:700; }
+  .challenge-card { border-radius:8px; border:1.5px solid var(--border); padding:8px 12px; margin-bottom:6px; position:relative; overflow:hidden; background:white; }
+  .challenge-card::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; }
+  .c2::before { background:var(--verde); }
+  .c3::before { background:var(--primary); }
+  .q-label { font-size:8.5pt; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:3px; }
+  .c2 .q-label { color:var(--verde); }
+  .q-icon { font-size:18pt; float:right; margin-left:8px; }
+  .challenge-card h3 { font-size:11pt; font-weight:800; margin-bottom:8px; line-height:1.4; padding-right:28px; color:var(--text); }
+  .options { display:flex; flex-direction:column; gap:5px; }
+  .option { display:flex; align-items:center; gap:6px; font-size:10pt; color:#334155; }
+  .opt-circle { width:18px; height:18px; border-radius:50%; border:1.5px solid var(--border); flex-shrink:0; }
+  .open-lines { margin-top:6px; }
+  .open-line { height:1px; background:var(--border); margin-bottom:20px; }
+  .page-footer { position:absolute; bottom:4mm; left:8mm; right:8mm; border-top:1.5px dashed var(--border); padding-top:4px; display:flex; justify-content:space-between; align-items:center; font-size:8.5pt; color:#A8A29E; }
+  .page-footer strong { color:var(--primary); }
+  .print-btn { position:fixed; bottom:24px; right:24px; background:var(--primary); color:white; border:none; padding:12px 22px; border-radius:50px; font-family:system-ui,sans-serif; font-weight:800; font-size:14px; cursor:pointer; box-shadow:0 4px 20px rgba(97,109,89,0.4); transition:transform .15s; z-index:999; }
+  .print-btn:hover { transform:scale(1.05); }
+  .saga-tag { display:inline-block; background:var(--primary); color:white; font-size:8pt; font-weight:800; padding:2px 8px; border-radius:10px; letter-spacing:0.5px; margin-bottom:4px; text-transform:uppercase; }
+  .topic-group { border:1.5px solid var(--border); border-radius:10px; padding:6px 10px; margin-bottom:6px; background:white; box-shadow:0 2px 6px rgba(0,0,0,0.02); }
+  .topic-group .section-title { margin-top:0 !important; margin-left:-4px; margin-right:-4px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 1 — SENSOR LDR + DECISÃO + CÓDIGO
+═══════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="header">
+    <div class="header-icon">☀️</div>
+    <div class="header-text">
+      <h1>Capítulo 3 — Ensinando o Robô a Sentir</h1>
+      <p>Micro:Bit · Formação de Multiplicadoras</p>
+    </div>
+  </div>
+  <hr>
+
+  <div class="badge-row">
+    <span class="badge">☀️ Sensor LDR</span>
+    <span class="badge">⚖️ Divisor de Tensão</span>
+    <span class="badge">🧠 Se / Senão</span>
+    <span class="badge">Pg. 1 de 3</span>
+  </div>
+
+  <!-- TEXTO CONDUTOR -->
+  <div class="callout" style="border-left-color:#8B5CF6; background:#FAF5FF; padding:5px 10px; margin-bottom:6px;">
+    <p>Seu LED já acende e apaga por comando de código. Mas e se o robô pudesse <strong>decidir sozinho</strong> quando acender — sem você precisar apertar nada? Neste capítulo você vai dar "olhos" ao circuito usando o sensor de luz (LDR) e ensinar o Micro:bit a tomar a primeira decisão autônoma.</p>
+  </div>
+
+  <!-- SENSOR LDR -->
+  <div class="topic-group">
+    <div class="section-title">☀️ O Sensor LDR — Como o robô "enxerga" a luz</div>
+    <div class="concept-card cc-verde" style="margin-bottom:0;">
+      <div class="cc-head"><span class="cc-title">LDR (Fotorresistor) — O Olho do Circuito</span></div>
+      <div class="cc-body">É um resistor especial que <strong>muda de valor</strong> conforme a luz ambiente. O Micro:bit "lê" esse valor como um número entre 0 e 1023.</div>
+      <div style="margin-top:6px;">
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:4px;">
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:6px; border:1px solid #E2E8F0;">
+            <span style="font-size:12pt; display:flex;">☀️</span>
+            <span style="font-size:9pt; color:#334155;"><strong>Luz intensa</strong> <span style="color:#94A3B8; margin:0 2px;">→</span> resistência baixa <span style="color:#94A3B8; margin:0 2px;">→</span> número <strong>alto</strong> (ex: 800–1023)</span>
+          </li>
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:6px; border:1px solid #E2E8F0;">
+            <span style="font-size:12pt; display:flex;">🌑</span>
+            <span style="font-size:9pt; color:#334155;"><strong>Escuro</strong> <span style="color:#94A3B8; margin:0 2px;">→</span> resistência alta <span style="color:#94A3B8; margin:0 2px;">→</span> número <strong>baixo</strong> (ex: 0–300)</span>
+          </li>
+          <li style="display:flex; align-items:center; gap:6px; background:#FFFBEB; padding:4px 8px; border-radius:6px; border:1px solid #FEF3C7;">
+            <span style="font-size:12pt; display:flex;">💡</span>
+            <span style="font-size:9pt; color:#92400E;">É assim que o Micro:bit "enxerga" a luz: medindo valores e tomando decisões!</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIVISOR DE TENSÃO -->
+  <div class="topic-group">
+    <div class="section-title">⚖️ Como o robô "sente" a luz (a Gangorra de Energia)</div>
+    <div class="concept-card cc-laranja" style="margin-bottom:0;">
+      <div class="cc-body">Sozinho, o LDR não consegue avisar o computador. Quando o colocamos com um resistor fixo, os dois formam uma <strong>gangorra de energia</strong>: com luz → <strong>número sobe</strong>; sem luz → <strong>número cai</strong>. O Micro:bit lê esse número pelo Pino P1.</div>
+      <div class="flow" style="margin-top:5px;">
+        <div class="flow-step">🔋 3V (VCC)</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">☀️ LDR (varia)</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">📡 Pino P1 lê aqui</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">🔩 10kΩ fixo</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">⏚ GND</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LÓGICA SE/SENÃO -->
+  <div class="topic-group">
+    <div class="section-title">🧠 Lógica Condicional — Se / Senão no MakeCode</div>
+    <div class="concept-grid col2" style="gap:6px;">
+      <div class="concept-card cc-roxo">
+        <div class="cc-head"><span class="cc-icon">🤔</span><span class="cc-title">Como o computador decide</span></div>
+        <div class="cc-body" style="margin-bottom:6px;">Uma pergunta com duas respostas:</div>
+        <div style="display:flex; flex-direction:column; gap:4px; margin-bottom:6px;">
+          <div class="cond-block cond-se"><strong>SE</strong> <span class="flow-arrow">→</span> (verdadeiro) <span class="flow-arrow">→</span> faz <em>isso</em></div>
+          <div class="cond-block cond-senao"><strong>SENÃO</strong> <span class="flow-arrow">→</span> (falso) <span class="flow-arrow">→</span> faz <em>aquilo</em></div>
+        </div>
+        <div class="analogy" style="display:flex; flex-direction:column; gap:5px; padding:6px 8px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="analogy-icon" style="font-size:14px;">🌧️</span>
+            <div><strong>SE</strong> chovendo <span class="flow-arrow">→</span> <strong>abro o guarda-chuva</strong></div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="analogy-icon" style="font-size:14px;">☁️</span>
+            <div><strong>SENÃO</strong> <span class="flow-arrow">→</span> deixo fechado.</div>
+          </div>
+        </div>
+      </div>
+      <div class="concept-card cc-primary">
+        <div class="cc-head"><span class="cc-icon">⚙️</span><span class="cc-title">No MakeCode — Alarme de Escuridão</span></div>
+        <div class="code-box">
+<span class="cs-keyword">sempre</span>
+      <span class="cs-comment">// <em>Roda o tempo todo&nbsp;</em></span>
+      {
+      <br>
+      <span class="cs-var">&nbsp;&nbsp;Luz</span> = leitura analógica <span class="cs-value">P1</span>
+      <br>
+      <span class="cs-keyword">&nbsp;&nbsp;se</span> (
+        <span class="cs-var">Luz</span> &lt; <span class="cs-value">500</span>
+      ) <span class="cs-comment">// está escuro!</span>
+      {
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;digital <span class="cs-value">P0</span> = <span class="cs-value">1</span>
+        <span class="cs-comment">// acende LED</span>
+      &nbsp;&nbsp;}
+      <br>
+      <span class="cs-keyword">&nbsp;&nbsp;senão</span> {
+        <span class="cs-comment">// tem luz!</span>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;digital <span class="cs-value">P0</span> = <span class="cs-value">0</span>
+        <span class="cs-comment">// apaga LED</span>
+      }
+      <br>
+      }
+    </div>
+        <div style="font-size:8pt; color:#57534E; margin-top:8px;">O valor <strong>500</strong> é o ponto de corte — você vai calibrar no Desafio 5!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>☀️ <strong>Capítulo 3</strong> — Micro:Bit · Formação de Multiplicadoras</span>
+    <span>Página <strong>1</strong> de 3</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 2 — DESAFIO 5 + MAKECODE PASSO A PASSO
+═══════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="header">
+    <div class="header-icon">🚀</div>
+    <div class="header-text">
+      <h1>Capítulo 3 — Desafio 5: O Alarme de Escuridão</h1>
+      <p>Micro:Bit · Formação de Multiplicadoras</p>
+    </div>
+  </div>
+  <hr>
+
+  <div class="badge-row">
+    <span class="badge">🚀 Desafio 5</span>
+    <span class="badge">💻 MakeCode Passo a Passo</span>
+    <span class="badge">Pg. 2 de 3</span>
+  </div>
+
+  <!-- DESAFIO 5 -->
+  <div class="topic-group">
+    <div class="section-title">🚀 Desafio 5 — Criando um Instrumento Científico</div>
+    <div class="mission-card m5" style="margin-bottom:0;">
+      <div class="mission-num">05</div>
+      <div class="mission-body" style="padding:5px 8px;">
+        <div class="mission-title">Alarme de Escuridão Automático</div>
+        <div style="margin-top:4px; display:flex; flex-direction:column; gap:5px;">
+          <div><span class="mission-tag tag-acao" style="margin:0;">🎯 Ação</span> <span style="font-size:9pt; color:#44403C;">Monte o divisor de tensão com LDR + resistor 10kΩ conectando ao <strong>Pino 1</strong>. Programe o alarme que acende o LED automaticamente quando a luz apaga.</span></div>
+          <div><span class="mission-tag tag-learn" style="margin:0;">✅ Aprende</span> <span style="font-size:9pt; color:#44403C;">Coleta de dados do mundo físico. Um instrumento científico real — igual ao que está dentro de sensores de presença e lâmpadas automáticas!</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAKECODE PASSO A PASSO -->
+  <div class="topic-group">
+    <div class="section-title">💻 MakeCode — Desafio 5 Passo a Passo</div>
+    <div class="two-col" style="gap:10px;">
+      <div style="display:flex; flex-direction:column; gap:5px;">
+        <div class="phase-title">🔍 Fase 1 — Calibragem</div>
+        <ul class="step-list" style="display:flex; flex-direction:column; gap:4px; margin:0; padding:0;">
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:8px; border:1px solid #E2E8F0; margin:0;"><span class="step-num" style="margin:0; flex-shrink:0;">1</span> <span style="line-height:1.3; font-size:9pt;">Use o bloco <span class="highlight">sempre</span></span></li>
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:8px; border:1px solid #E2E8F0; margin:0;"><span class="step-num" style="margin:0; flex-shrink:0;">2</span> <span style="line-height:1.3; font-size:9pt;">Encaixe <span class="highlight">mostrar número</span></span></li>
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:8px; border:1px solid #E2E8F0; margin:0;"><span class="step-num" style="margin:0; flex-shrink:0;">3</span> <span style="line-height:1.3; font-size:9pt;">Dentro: <span class="highlight">leitura analógica pino P1</span></span></li>
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:8px; border:1px solid #E2E8F0; margin:0;"><span class="step-num" style="margin:0; flex-shrink:0;">4</span> <span style="line-height:1.3; font-size:9pt;">Anote o número com luz acesa e com sombra. A média = <strong>ponto de corte</strong> (ex: 500)</span></li>
+        </ul>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:5px;">
+        <div class="phase-title">⚙️ Fase 2 — Lógica Se/Senão</div>
+        <ul class="step-list" style="display:flex; flex-direction:column; gap:4px; margin:0; padding:0;">
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:8px; border:1px solid #E2E8F0; margin:0;"><span class="step-num" style="margin:0; flex-shrink:0;">1</span> <span style="line-height:1.3; font-size:9pt;">Crie variável <span class="highlight">Luz</span></span></li>
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:8px; border:1px solid #E2E8F0; margin:0;"><span class="step-num" style="margin:0; flex-shrink:0;">2</span> <span style="line-height:1.3; font-size:9pt;"><span class="highlight">definir Luz para</span> → leitura analógica P1</span></li>
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:8px; border:1px solid #E2E8F0; margin:0;"><span class="step-num" style="margin:0; flex-shrink:0;">3</span> <span style="line-height:1.3; font-size:9pt;">Bloco condicional <span class="highlight">se ... então ... senão</span></span></li>
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:8px; border:1px solid #E2E8F0; margin:0;"><span class="step-num" style="margin:0; flex-shrink:0;">4</span> <span style="line-height:1.3; font-size:9pt;"><strong>Se</strong> <span class="highlight">Luz &lt; 500</span> → <span class="highlight">gravação digital P0 para 1</span> (acende)</span></li>
+          <li style="display:flex; align-items:center; gap:6px; background:#F8FAFC; padding:4px 8px; border-radius:8px; border:1px solid #E2E8F0; margin:0;"><span class="step-num" style="margin:0; flex-shrink:0;">5</span> <span style="line-height:1.3; font-size:9pt;"><strong>Senão</strong> → <span class="highlight">gravação digital P0 para 0</span> (apaga)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MINI GLOSSÁRIO -->
+  <div class="topic-group">
+    <div class="section-title">📚 Mini Glossário Rápido</div>
+    <div class="glossario-grid" style="gap:4px;">
+      <div class="gloss-item"><strong>Anodo (+)</strong>Perna longa do LED — entra corrente por aqui.</div>
+      <div class="gloss-item"><strong>GND</strong>Ground (terra). Referência negativa do circuito.</div>
+      <div class="gloss-item"><strong>VCC</strong>Tensão de alimentação — polo positivo da fonte.</div>
+      <div class="gloss-item"><strong>Digital</strong>Sinais com 2 estados: <strong>1</strong> (ligado) ou <strong>0</strong> (desligado).</div>
+      <div class="gloss-item"><strong>Analógico</strong>Valores contínuos de 0 a 1023 (ex: sensor LDR).</div>
+      <div class="gloss-item"><strong>Calibrar</strong>Ajustar o ponto de corte do sensor ao ambiente.</div>
+    </div>
+  </div>
+
+  <!-- TAREFA V OU F -->
+  <div class="topic-group" style="margin-bottom:0;">
+    <div class="section-title">✅ Verdadeiro ou Falso?</div>
+    <div class="concept-card cc-laranja" style="padding:6px 10px; margin-bottom:0;">
+      <div style="font-size:9pt; font-weight:700; color:var(--text); margin-bottom:5px;">Marque V para Verdadeiro ou F para Falso:</div>
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <div style="width:18px; height:18px; border:1.5px solid var(--secondary); border-radius:4px; background:white; flex-shrink:0;"></div>
+          <div style="font-size:9pt; color:#44403C; line-height:1.3;">O LDR é um sensor digital, que só entende ligado (1) ou desligado (0).</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <div style="width:18px; height:18px; border:1.5px solid var(--secondary); border-radius:4px; background:white; flex-shrink:0;"></div>
+          <div style="font-size:9pt; color:#44403C; line-height:1.3;">O bloco <strong>SE / SENÃO</strong> ensina o robô a tomar decisões baseadas em regras.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <div style="width:18px; height:18px; border:1.5px solid var(--secondary); border-radius:4px; background:white; flex-shrink:0;"></div>
+          <div style="font-size:9pt; color:#44403C; line-height:1.3;">Calibrar o sensor é descobrir o <em>ponto de corte</em> da luz do ambiente real.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>☀️ <strong>Capítulo 3</strong> — Micro:Bit · Formação de Multiplicadoras</span>
+    <span>Página <strong>2</strong> de 3</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 3 — QUESTÕES DE FIXAÇÃO
+═══════════════════════════════════════════ -->
+<div class="page" style="display:flex; flex-direction:column;">
+
+  <div class="header">
+    <div class="header-icon">📝</div>
+    <div class="header-text">
+      <h1>Capítulo 3 — Desafios Rápidos</h1>
+      <p>Micro:Bit · Formação de Multiplicadoras</p>
+    </div>
+  </div>
+  <hr>
+
+  <div class="badge-row">
+    <span class="badge">📝 Fixação</span>
+    <span class="badge">🎯 Revisão</span>
+    <span class="badge">Pg. 3 de 3</span>
+  </div>
+
+  <div style="text-align:center; margin-bottom:10px;">
+    <p style="font-size:10pt; color:#78716C;">Responda com calma — você já sabe isso! 🎓</p>
+  </div>
+
+  <div style="height:4px; border-radius:3px; background:linear-gradient(90deg, var(--primary), var(--secondary), var(--aux1)); margin-bottom:12px;"></div>
+
+  <!-- QUESTÃO 2 -->
+  <div class="topic-group">
+    <div class="section-title">📝 Questões de Fixação</div>
+    <div class="challenge-card c2" style="margin-bottom:5px;">
+      <span class="q-icon">🛡️</span>
+      <div class="q-label">Questão 2 — Componentes Eletrônicos</div>
+      <h3>No Desafio 2, por que usamos um resistor de 220Ω em série com o LED antes de ligar na bateria?</h3>
+      <div class="options" style="gap:3px;">
+        <div class="option"><div class="opt-circle"></div> Para deixar o LED piscar em vez de ficar aceso o tempo todo.</div>
+        <div class="option"><div class="opt-circle"></div> Para limitar a corrente e evitar que o LED queime com tensão excessiva.</div>
+        <div class="option"><div class="opt-circle"></div> Para aumentar o brilho do LED, pois ele precisa de mais energia.</div>
+        <div class="option"><div class="opt-circle"></div> Apenas para organizar melhor os fios na protoboard.</div>
+      </div>
+    </div>
+
+    <!-- QUESTÃO 3 -->
+    <div class="challenge-card c3" style="margin-bottom:5px;">
+      <span class="q-icon">💡</span>
+      <div class="q-label">Questão 3 — Automação e Programação</div>
+      <h3>No "Alarme de Escuridão" do Desafio 5, o que a Micro:bit faz quando o valor lido no Pino P1 fica abaixo do ponto de corte definido por vocês?</h3>
+      <div class="open-lines" style="margin-top:4px;">
+        <div class="open-line"></div>
+        <div class="open-line"></div>
+        <div class="open-line"></div>
+        <div class="open-line"></div>
+      </div>
+      <p style="font-size:9.5pt; color:#A8A29E; font-style:italic; margin-top:4px;">💬 Dica: pense na lógica <strong>Se/Senão</strong> que você programou no MakeCode.</p>
+    </div>
+
+    <!-- CRUZADINHA / PREENCHA -->
+    <div class="challenge-card c2" style="padding:5px 8px; margin-bottom:0;">
+      <span class="q-icon" style="font-size:13pt;">✏️</span>
+      <div class="q-label" style="margin-bottom:2px;">Desafio Bônus — A Palavra Oculta</div>
+      <h3 style="margin-bottom:5px; font-size:9pt;">Complete as respostas e descubra a palavra secreta na coluna destacada (Dica: Uma cor de LED!):</h3>
+      <div style="display:flex; flex-direction:column; gap:4px; padding:0 2px;">
+        <div style="display:flex; align-items:flex-end;">
+          <div style="font-size:8.5pt; color:#44403C; font-weight:700;">1. Polo positivo da bateria (sigla)</div>
+          <div style="border-bottom:1.5px dotted #D6D3D1; flex:1; margin:0 6px 3px 6px;"></div>
+          <div style="display:flex; gap:2px; width:160px; justify-content:flex-start;">
+            <div style="width:16px; height:16px; border:1px solid transparent; background:transparent; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid transparent; background:transparent; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1.5px solid #22C55E; border-radius:3px; background:#DCFCE7; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-end;">
+          <div style="font-size:8.5pt; color:#44403C; font-weight:700;">2. O contrário lógico de "SE"</div>
+          <div style="border-bottom:1.5px dotted #D6D3D1; flex:1; margin:0 6px 3px 6px;"></div>
+          <div style="display:flex; gap:2px; width:160px; justify-content:flex-start;">
+            <div style="width:16px; height:16px; border:1px solid transparent; background:transparent; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1.5px solid #22C55E; border-radius:3px; background:#DCFCE7; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-end;">
+          <div style="font-size:8.5pt; color:#44403C; font-weight:700;">3. Sensor de luz (sigla)</div>
+          <div style="border-bottom:1.5px dotted #D6D3D1; flex:1; margin:0 6px 3px 6px;"></div>
+          <div style="display:flex; gap:2px; width:160px; justify-content:flex-start;">
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1.5px solid #22C55E; border-radius:3px; background:#DCFCE7; flex-shrink:0;"></div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-end;">
+          <div style="font-size:8.5pt; color:#44403C; font-weight:700;">4. Referência Negativa / Terra (sigla)</div>
+          <div style="border-bottom:1.5px dotted #D6D3D1; flex:1; margin:0 6px 3px 6px;"></div>
+          <div style="display:flex; gap:2px; width:160px; justify-content:flex-start;">
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1.5px solid #22C55E; border-radius:3px; background:#DCFCE7; flex-shrink:0;"></div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-end;">
+          <div style="font-size:8.5pt; color:#44403C; font-weight:700;">5. Componente que limita a corrente</div>
+          <div style="border-bottom:1.5px dotted #D6D3D1; flex:1; margin:0 6px 3px 6px;"></div>
+          <div style="display:flex; gap:2px; width:160px; justify-content:flex-start;">
+            <div style="width:16px; height:16px; border:1px solid transparent; background:transparent; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1.5px solid #22C55E; border-radius:3px; background:#DCFCE7; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+            <div style="width:16px; height:16px; border:1px solid var(--border); border-radius:3px; background:white; flex-shrink:0;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:8px; border-left-color:#F97316; background:#FFF7ED; font-size:9.5pt;">
+    🏆 <strong>Próximo passo — O Desafio Final:</strong> Você entendeu eletricidade, acendeu LEDs, programou sensores. Agora vem a prova real: o seu corpo vai fechar o circuito e disparar um jogo de reação!
+  </div>
+
+  <div style="text-align:center; margin-top:auto; margin-bottom:auto;">
+    <img src="assets/logo.png" style="height:150px; margin-bottom:12px;" alt="Logo">
+    <p style="font-size:10pt; color:#A8A29E; margin-bottom:0;">🚀 <strong>Parabéns por chegar até aqui!</strong> Você está pronto(a) para o Gran Finale!</p>
+  </div>
+
+  <div style="position:absolute; bottom:12mm; left:0; width:100%; text-align:center;">
+    <div style="transform: rotate(180deg); font-size:5.5pt; color:#D6D3D1; font-family:monospace;">
+      Gabarito: 1.VCC | 2.SENÃO | 3.LDR | 4.GND | 5.RESISTOR
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>☀️ <strong>Capítulo 3</strong> — Micro:Bit · Formação de Multiplicadoras</span>
+    <span>Página <strong>3</strong> de 3</span>
+  </div>
+</div>
+
+<button class="print-btn no-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+
+</body>
+</html>
