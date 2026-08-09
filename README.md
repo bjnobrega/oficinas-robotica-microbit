@@ -41,10 +41,6 @@ oficinas-robotica-microbit/
 │   ├── Oficina00_Cap2_Acendendo_Primeira_Luz.pdf
 │   ├── Oficina00_Cap3_Ensinando_Robo_Sentir.pdf
 │   ├── Oficina00_Cap4_Desafio_Final_Jogo_Reacao.pdf
-│   ├── Cap1_Entendendo_Eletricidade.html
-│   ├── Cap2_Primeira_Luz.html
-│   ├── Cap3_Robo_Sente.html
-│   ├── Cap4_Desafio_Final.html
 │   ├── Oficina00_JogoReacao.js
 │   ├── Oficina00_AlarmeLuz.js
 │   └── assets/

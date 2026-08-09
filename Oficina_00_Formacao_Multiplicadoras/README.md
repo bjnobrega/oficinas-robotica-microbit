@@ -116,13 +116,9 @@ Nesta oficina, o LED que não acende por estar invertido, o multímetro que não
 - **`Oficina00_Cap2_Acendendo_Primeira_Luz.pdf`**: Caderno de Formação impresso — Capítulo 2. Circuito aberto/fechado, Desafios 2, 3 e 4, introdução à Micro:bit e controle digital de LED.
 - **`Oficina00_Cap3_Ensinando_Robo_Sentir.pdf`**: Caderno de Formação impresso — Capítulo 3. Sensor LDR, divisor de tensão, lógica SE/SENÃO e Desafio 5 (Alarme de Escuridão Automático).
 - **`Oficina00_Cap4_Desafio_Final_Jogo_Reacao.pdf`**: Caderno de Formação impresso — Capítulo 4. Jogo de Reação com circuito humano, código completo, guia da facilitadora e troubleshooting.
-- **`Cap1_Entendendo_Eletricidade.html`**: Versão HTML responsiva do Capítulo 1, otimizada para impressão A4 ou salvamento em PDF pelo navegador.
-- **`Cap2_Primeira_Luz.html`**: Versão HTML responsiva do Capítulo 2, otimizada para impressão A4.
-- **`Cap3_Robo_Sente.html`**: Versão HTML responsiva do Capítulo 3, otimizada para impressão A4.
-- **`Cap4_Desafio_Final.html`**: Versão HTML responsiva do Capítulo 4, otimizada para impressão A4.
 - **`Oficina00_JogoReacao.js`**: Código-fonte em JavaScript do Jogo de Reação (Capítulo 4) — variável `liberado`, eventos `onPinPressed`, pausa aleatória e sistema de punição.
 - **`Oficina00_AlarmeLuz.js`**: Código-fonte em JavaScript do Alarme de Escuridão (Capítulo 3) — leitura analógica do LDR e controle condicional do LED.
-- **`assets/`**: Imagens de apoio referenciadas nos cadernos HTML (diagramas de circuito, protoboard, polaridade do LED, placa Micro:bit, circuito humano, blocos MakeCode).
+- **`assets/`**: Imagens de apoio referenciadas nos cadernos (diagramas de circuito, protoboard, polaridade do LED, placa Micro:bit, circuito humano, blocos MakeCode).
 - **`README.md`**: Este guia de orientação da oficina.
 
 ---
