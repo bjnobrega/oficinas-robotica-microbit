@@ -53,33 +53,31 @@ oficinas-robotica-microbit/
 │   ├── Oficina01_Guia_Professor.pdf
 │   ├── Oficina01_Ficha_Investigativa.pdf
 │   ├── Oficina01_Bussola.js
-│   └── projeto_original_bussola_microbit/
-├── Oficina_02_DataLogger_Reacoes_Quimicas/
+│   └── projeto_original_bussola_microbit.md
+├── Oficina_02_Quimica_Sensores_Temperatura/
 │   ├── README.md
 │   ├── Oficina02_Guia_Professor.pdf
 │   ├── Oficina02_Ficha_Investigativa.pdf
-│   ├── Oficina02_DataLogger.js
-│   └── ...
-├── Oficina_03_Energia_Solar_Fotovoltaica/
+│   └── Oficina_02_data_logger.js
+├── Oficina_03_Fisica_Circuitos_Placas_Solares/
 │   ├── README.md
 │   ├── Oficina03_Guia_Professor.pdf
 │   ├── Oficina03_Ficha_Investigativa.pdf
-│   ├── Oficina03_EnergSolar.js
-│   └── ...
-├── Oficina_04_Foguete_Telemetria/
+│   ├── Oficina03_painel_solar.js
+│   ├── Oficina03circuito.png
+│   └── Oficina03codigo.png
+├── Oficina_04_Fisica_Lancamento_Foguetes/
 │   ├── README.md
 │   ├── Oficina04_Guia_Professor.pdf
 │   ├── Oficina04_Ficha_Investigativa.pdf
-│   ├── Oficina04_Foguete_Embarcado.js
-│   ├── Oficina04_Estacao_Solo.js
-│   └── ...
+│   ├── Oficina04_codigo_foguete.js
+│   ├── Oficina04_codigo_radar.js
+│   ├── mao-na-massa-foguetes.pdf
+│   └── tutorial-base-lancamento.pdf
 ├── Produto_Educacional_Ebook/
-│   └── Guia_Robotica_Educacional.html
+│   └── README.md
 ├── Recursos_Complementares/
-│   ├── imagens_blocos_codigo/
-│   ├── circuitos_protoboard/
-│   ├── cientistas_brasileiras/
-│   └── referencias_adicionais.md
+│   └── README.md
 └── README.md (este arquivo)
 ```
 
@@ -113,7 +111,7 @@ Introdução à plataforma Micro:bit focando no uso do **magnetômetro embarcado
 
 ---
 
-### 🧪 Oficina 02 – Chemistry & Temperature Sensors
+### 🧪 Oficina 02 — Data Logger de Temperatura: Investigando Reações Químicas
 **Conceitos:** Termodinâmica, reações endotérmicas e exotérmicas, coleta e análise de dados
 
 Experimento prático interdisciplinar que coloca a placa micro:bit como **data logger** — um registrador contínuo de temperatura. Utilizando a sonda DS18B20, as estudantes investigam duas reações químicas reais:
