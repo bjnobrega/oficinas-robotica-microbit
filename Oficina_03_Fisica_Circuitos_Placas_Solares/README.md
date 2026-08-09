@@ -99,8 +99,6 @@ Nesta oficina, um LED que não acende não deve ser observado somente como uma f
 - **`Oficina03_Guia_Professor.pdf`**: Documento de planejamento pedagógico passo a passo, com cronograma detalhado, orientações de montagem, competências curriculares e critérios de avaliação.
 - **`Oficina03_Ficha_Investigativa.pdf`**: Diário de bordo das investigações, com tabelas para registro de ângulos, cores de LEDs e comportamento do circuito.
 - **`Oficina03_painel_solar.js`**: Código-fonte em JavaScript para leitura dos pinos analógicos e controle dos LEDs via micro:bit.
-- **`Oficina03circuito.png`**: Diagrama do circuito em protoboard.
-- **`Oficina03codigo.png`**: Imagem dos blocos de código no MakeCode.
 - **`README.md`**: Este guia rápido de orientação da oficina.
 
 -----

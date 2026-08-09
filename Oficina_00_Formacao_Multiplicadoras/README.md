@@ -118,7 +118,6 @@ Nesta oficina, o LED que não acende por estar invertido, o multímetro que não
 - **`Oficina00_Cap4_Desafio_Final_Jogo_Reacao.pdf`**: Caderno de Formação impresso — Capítulo 4. Jogo de Reação com circuito humano, código completo, guia da facilitadora e troubleshooting.
 - **`Oficina00_JogoReacao.js`**: Código-fonte em JavaScript do Jogo de Reação (Capítulo 4) — variável `liberado`, eventos `onPinPressed`, pausa aleatória e sistema de punição.
 - **`Oficina00_AlarmeLuz.js`**: Código-fonte em JavaScript do Alarme de Escuridão (Capítulo 3) — leitura analógica do LDR e controle condicional do LED.
-- **`assets/`**: Imagens de apoio referenciadas nos cadernos (diagramas de circuito, protoboard, polaridade do LED, placa Micro:bit, circuito humano, blocos MakeCode).
 - **`README.md`**: Este guia de orientação da oficina.
 
 ---

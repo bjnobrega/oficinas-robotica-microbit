@@ -42,8 +42,7 @@ oficinas-robotica-microbit/
 │   ├── Oficina00_Cap3_Ensinando_Robo_Sentir.pdf
 │   ├── Oficina00_Cap4_Desafio_Final_Jogo_Reacao.pdf
 │   ├── Oficina00_JogoReacao.js
-│   ├── Oficina00_AlarmeLuz.js
-│   └── assets/
+│   └── Oficina00_AlarmeLuz.js
 ├── Oficina_01_Bussola_e_Telemetria/
 │   ├── README.md
 │   ├── Oficina01_Guia_Professor.pdf
@@ -59,9 +58,7 @@ oficinas-robotica-microbit/
 │   ├── README.md
 │   ├── Oficina03_Guia_Professor.pdf
 │   ├── Oficina03_Ficha_Investigativa.pdf
-│   ├── Oficina03_painel_solar.js
-│   ├── Oficina03circuito.png
-│   └── Oficina03codigo.png
+│   └── Oficina03_painel_solar.js
 ├── Oficina_04_Fisica_Lancamento_Foguetes/
 │   ├── README.md
 │   ├── Oficina04_Guia_Professor.pdf
