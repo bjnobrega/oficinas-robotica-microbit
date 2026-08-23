@@ -3,720 +3,341 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meninas na Robótica: Guia Prático de Oficinas com Micro:bit | Produto Educacional UFRJ</title>
-  
-  <!-- Metatags SEO e Redes Sociais -->
-  <meta name="description" content="Produto Educacional de Mestrado Profissional: Guia prático de oficinas de ciências investigativas com micro:bit voltadas ao protagonismo feminino em STEM. UFRJ - PROFICIÊNCIAS.">
+  <title>Meninas na Robótica — E-book | UFRJ</title>
+  <meta name="description" content="E-book: Guia prático de oficinas de ciências investigativas com micro:bit voltadas ao protagonismo feminino em STEM. Produto Educacional — UFRJ / PROFICIÊNCIAS.">
   <meta name="author" content="Bruno José Donato da Nóbrega">
-  <meta property="og:title" content="Meninas na Robótica: Guia de Oficinas de Ciências com Micro:bit">
-  <meta property="og:description" content="Guia completo de oficinas investigativas com BBC Micro:bit voltadas ao protagonismo feminino em STEM. UFRJ - PROFICIÊNCIAS.">
+  <meta property="og:title" content="Meninas na Robótica — E-book">
+  <meta property="og:description" content="Oficinas de ciências com BBC Micro:bit voltadas ao protagonismo feminino em STEM.">
   <meta property="og:image" content="assets/capa_ebook.png">
   <meta property="og:type" content="book">
-
   <style>
-    :root {
-      --primary: #582be8;
-      --primary-hover: #431db8;
-      --primary-light: #f1edff;
-      --secondary: #0f172a;
-      --accent: #e11d48;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --border: #e2e8f0;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --radius: 14px;
-      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-      --shadow-cover: 0 16px 36px rgba(88, 43, 232, 0.18), 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 60px;
     }
 
-    /* Top Banner Institucional */
-    .top-banner {
-      background: linear-gradient(90deg, #1e1b4b, #312e81);
-      color: #e0e7ff;
-      padding: 10px 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-align: center;
-      letter-spacing: 0.5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-    }
-    .top-banner span.badge {
-      background: rgba(255, 255, 255, 0.18);
-      padding: 2px 10px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    /* Container Principal */
-    .container {
-      max-width: 960px;
-      margin: 36px auto 0;
-      padding: 0 20px;
-    }
-
-    /* Barra de Logos Institucionais */
-    .institutional-bar {
+    /* ── Topo com logos ── */
+    .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 24px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
+      padding: 14px 28px;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e7;
     }
-
-    .inst-logos-group {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .inst-logo {
-      height: 48px;
-      width: auto;
-      max-width: 170px;
-      object-fit: contain;
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.04));
-      transition: transform 0.2s ease;
-    }
-    .inst-logo:hover {
-      transform: translateY(-1px);
-    }
-
-    .inst-divider {
-      width: 1px;
-      height: 32px;
-      background-color: var(--border);
-    }
-
-    /* Hero Card */
-    .hero-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      padding: 40px;
-      margin-bottom: 36px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .tag-product {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--primary-light);
-      color: var(--primary);
-      padding: 4px 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
+    .topbar img { height: 42px; }
+    .topbar-center {
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      letter-spacing: 1.2px;
+      color: #86868b;
     }
 
-    h1 {
-      font-size: 2.1rem;
-      line-height: 1.25;
-      color: var(--secondary);
-      font-weight: 800;
-      margin-bottom: 10px;
+    /* ── Container ── */
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    p.lead-subtitle {
-      font-size: 1.12rem;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-
-    p.abstract {
-      color: var(--text);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-
-    /* Capa do E-book */
-    .cover-wrapper {
+    /* ── Cabeçalho do e-book ── */
+    .header {
       text-align: center;
+      padding: 36px 0 24px;
     }
-    .cover-img {
-      width: 100%;
-      max-width: 270px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: var(--shadow-cover);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1d1d1f;
+      margin-bottom: 6px;
     }
-    .cover-img:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(88, 43, 232, 0.25);
+    .header p {
+      font-size: 0.95rem;
+      color: #6e6e73;
+      max-width: 560px;
+      margin: 0 auto 20px;
     }
-    .cover-caption {
-      margin-top: 10px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* Action Buttons */
-    .actions-group {
+    .actions {
       display: flex;
+      gap: 10px;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 22px;
+      gap: 6px;
+      padding: 10px 20px;
       border-radius: 8px;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-dl {
+      background: #1d1d1f;
+      color: #fff;
+    }
+    .btn-dl:hover { background: #333; }
+    .btn-repo {
+      background: #fff;
+      color: #1d1d1f;
+      border: 1px solid #d2d2d7;
+    }
+    .btn-repo:hover { background: #f5f5f7; border-color: #bbb; }
+
+    /* ── Flipbook (herói da página) ── */
+    .flipbook-section {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e5e5e7;
+      padding: 10px;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .flipbook-section iframe {
+      width: 100%;
+      height: 580px;
+      border: 0;
+      border-radius: 8px;
+      display: block;
     }
 
-    .btn-primary {
-      background: var(--primary);
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(88, 43, 232, 0.3);
-    }
-    .btn-primary:hover {
-      background: var(--primary-hover);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: #ffffff;
-      color: var(--secondary);
-      border: 1px solid var(--border);
-    }
-    .btn-secondary:hover {
-      background: #f1f5f9;
-      border-color: #cbd5e1;
-    }
-
-    /* Glow Effect no Botão Ler Online */
-    .btn-glow {
-      background: linear-gradient(135deg, #7c3aed, #4f46e5);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 0 16px rgba(124, 58, 237, 0.5), 0 0 32px rgba(79, 70, 229, 0.25);
-      animation: pulse-glow 2.4s infinite ease-in-out;
-      position: relative;
-    }
-    .btn-glow:hover {
-      background: linear-gradient(135deg, #6d28d9, #4338ca);
-      box-shadow: 0 0 24px rgba(124, 58, 237, 0.8), 0 0 45px rgba(79, 70, 229, 0.45);
-      transform: translateY(-2px) scale(1.02);
-      animation: none;
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% {
-        box-shadow: 0 0 12px rgba(124, 58, 237, 0.4), 0 0 24px rgba(79, 70, 229, 0.2);
-      }
-      50% {
-        box-shadow: 0 0 24px rgba(124, 58, 237, 0.8), 0 0 48px rgba(79, 70, 229, 0.45);
-      }
-    }
-
-    .btn-github {
-      background: #0f172a;
-      color: #ffffff;
-    }
-    .btn-github:hover {
-      background: #1e293b;
-    }
-
-    /* Section Titles */
+    /* ── Seções de conteúdo ── */
     .section-title {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      color: var(--secondary);
-      margin: 36px 0 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      color: #1d1d1f;
+      margin: 0 0 16px;
     }
 
-    /* Grid de Oficinas */
-    .grid-oficinas {
+    /* ── Grade de oficinas ── */
+    .oficinas-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 16px;
-      margin-bottom: 36px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+      margin-bottom: 40px;
     }
-
-    .oficina-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+    .oficina {
+      background: #fff;
+      border: 1px solid #e5e5e7;
       border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .oficina-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--primary);
+      padding: 16px;
     }
     .oficina-num {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 800;
-      color: var(--primary);
+      color: #6e6e73;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
-    .oficina-card h3 {
-      font-size: 1.05rem;
-      color: var(--secondary);
-      margin-bottom: 8px;
+    .oficina h3 {
+      font-size: 0.95rem;
+      color: #1d1d1f;
+      margin-bottom: 4px;
     }
-    .oficina-card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Leitor Online Card */
-    .reader-card {
-      background: var(--card-bg);
-      padding: 16px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
+    .oficina p {
+      font-size: 0.82rem;
+      color: #86868b;
+      line-height: 1.45;
     }
 
-    /* Seção do Pesquisador / Autor */
-    .author-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px 32px;
-      margin-bottom: 36px;
-    }
-    .author-grid {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 24px;
+    /* ── Autor ── */
+    .author {
+      display: flex;
       align-items: center;
+      gap: 18px;
+      background: #fff;
+      border: 1px solid #e5e5e7;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 40px;
     }
-    .author-photo-wrapper {
-      text-align: center;
-    }
-    .author-photo {
-      width: 100%;
-      max-width: 130px;
-      height: auto;
+    .author img {
+      width: 72px;
+      height: 72px;
       border-radius: 8px;
       object-fit: cover;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      flex-shrink: 0;
     }
-    .author-tag {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--primary);
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 2px 10px;
-      border-radius: 4px;
-      margin-bottom: 8px;
-    }
-    .author-name {
-      font-size: 1.35rem;
-      color: var(--secondary);
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .author-affiliation {
-      font-size: 0.88rem;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .author-desc {
-      font-size: 0.92rem;
-      color: var(--text);
-      line-height: 1.65;
-      margin-bottom: 16px;
-    }
-    .author-links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .author-link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #f1f5f9;
-      color: var(--secondary);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 6px 14px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .author-link-btn:hover {
-      background: var(--primary-light);
-      color: var(--primary);
-      border-color: var(--primary);
-    }
-
-    /* Metadados / Ficha Técnica */
-    .metadata-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      margin-bottom: 32px;
-    }
-
-    .metadata-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-    .meta-item h4 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-    .meta-item p {
+    .author-info h3 {
       font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--secondary);
+      color: #1d1d1f;
+      margin-bottom: 2px;
+    }
+    .author-info .role {
+      font-size: 0.82rem;
+      color: #6e6e73;
+      margin-bottom: 4px;
+    }
+    .author-info .desc {
+      font-size: 0.82rem;
+      color: #86868b;
+      line-height: 1.45;
     }
 
-    /* Box de Citação ABNT */
-    .citation-box {
-      background: #f1f5f9;
-      border: 1px dashed #cbd5e1;
-      border-radius: 8px;
+    /* ── Citação ── */
+    .cite-box {
+      background: #fff;
+      border: 1px solid #e5e5e7;
+      border-radius: 10px;
       padding: 20px;
+      margin-bottom: 40px;
       position: relative;
     }
-    .citation-box pre {
+    .cite-box .label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #86868b;
+      margin-bottom: 8px;
+    }
+    .cite-box pre {
       font-family: inherit;
-      font-size: 0.88rem;
-      color: var(--text);
+      font-size: 0.82rem;
+      color: #1d1d1f;
       white-space: pre-wrap;
       word-break: break-word;
-      line-height: 1.6;
+      line-height: 1.5;
     }
     .copy-btn {
       position: absolute;
-      top: 14px;
-      right: 14px;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
+      top: 16px;
+      right: 16px;
+      background: #f5f5f7;
+      border: 1px solid #d2d2d7;
       border-radius: 6px;
-      padding: 6px 12px;
-      font-size: 0.75rem;
+      padding: 4px 10px;
+      font-size: 0.72rem;
       font-weight: 600;
-      color: var(--text);
+      color: #1d1d1f;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
     }
-    .copy-btn:hover {
-      background: #e2e8f0;
-    }
+    .copy-btn:hover { background: #e8e8ed; }
 
-    /* Rodapé Institucional */
+    /* ── Rodapé ── */
     footer {
       text-align: center;
-      padding-top: 36px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      margin-top: 40px;
+      padding: 24px 20px 36px;
+      font-size: 0.78rem;
+      color: #86868b;
+      border-top: 1px solid #e5e5e7;
     }
-    .footer-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 18px;
-      opacity: 0.9;
-    }
-    .footer-logo {
-      height: 38px;
-      width: auto;
-      object-fit: contain;
-    }
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a { color: #6e6e73; }
 
-    /* Responsividade */
-    @media (max-width: 768px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .cover-wrapper {
-        order: -1;
-        margin-bottom: 20px;
-      }
-      .cover-img {
-        max-width: 220px;
-      }
-      .author-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .author-links {
-        justify-content: center;
-      }
-      .hero-card { padding: 28px 20px; }
-      h1 { font-size: 1.65rem; }
-      .actions-group { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; }
-      .institutional-bar { flex-direction: column; align-items: flex-start; gap: 14px; }
-      .top-banner { flex-direction: column; gap: 4px; font-size: 0.78rem; }
+    /* ── Responsivo ── */
+    @media (max-width: 640px) {
+      .topbar { padding: 10px 16px; }
+      .topbar img { height: 32px; }
+      .topbar-center { font-size: 0.62rem; letter-spacing: 0.8px; }
+      .header h1 { font-size: 1.4rem; }
+      .flipbook-section iframe { height: 400px; }
+      .actions { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+      .author { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Banner Acadêmico -->
-  <div class="top-banner">
-    <span class="badge">Produto Educacional</span>
-    <span>Universidade Federal do Rio de Janeiro (UFRJ) • Mestrado Profissional PROFICIÊNCIAS</span>
-  </div>
+  <!-- Topo: logo UFRJ à esquerda, logo Campus à direita -->
+  <nav class="topbar">
+    <img src="assets/marca-ufrj-horizontal-positiva.png" alt="UFRJ">
+    <span class="topbar-center">Produto Educacional • Mestrado Profissional</span>
+    <img src="assets/logo_2.png" alt="PROFICIÊNCIAS / Campus UFRJ">
+  </nav>
 
-  <main class="container">
-    
-    <!-- Hero Principal com Logos e Capa do Ebook -->
-    <section class="hero-card">
-      
-      <!-- Barra de Logos Oficiais (Sem duplicação da marca UFRJ) -->
-      <div class="institutional-bar">
-        <div class="inst-logos-group">
-          <img class="inst-logo" src="assets/marca-ufrj-horizontal-positiva.png" alt="UFRJ - Universidade Federal do Rio de Janeiro">
-          <div class="inst-divider"></div>
-          <img class="inst-logo" src="assets/logo_2.png" alt="Logo Projeto Meninas nas Exatas / PROFICIÊNCIAS">
-        </div>
-        
-        <div class="tag-product">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-          Produto Educacional
-        </div>
-      </div>
+  <main class="wrap">
 
-      <!-- Grid Hero: Conteúdo Editorial + Capa 3D -->
-      <div class="hero-grid">
-        <div class="hero-content">
-          <h1>Meninas na Robótica</h1>
-          <p class="lead-subtitle">Guia Prático de Oficinas de Ciências Investigativas com o Micro:bit</p>
-          
-          <p class="abstract">
-            Este e-book apresenta uma sequência didática fundamentada no Ensino de Ciências por Investigação (ENCI) e na Aprendizagem Criativa, voltada à promoção do <strong>protagonismo feminino em STEM</strong>. O material reúne roteiros completos, códigos MakeCode/JavaScript, desafios práticos e materiais de apoio para aplicação da placa BBC Micro:bit em salas de aula da Educação Básica.
-          </p>
-
-          <!-- Botões de Ação -->
-          <div class="actions-group">
-            <a class="btn btn-primary" href="Produto_Educacional_Ebook/meninas-robotica-guia.pdf" download="meninas-robotica-guia.pdf">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              Baixar E-book (PDF Completo)
-            </a>
-
-            <a class="btn btn-glow" href="#leitor-online">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-              Ler Online (Flipbook)
-            </a>
-
-            <a class="btn btn-github" href="https://github.com/bjnobrega/oficinas-robotica-microbit" target="_blank" rel="noopener noreferrer">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              Repositório & Códigos
-            </a>
-          </div>
-        </div>
-
-        <!-- Coluna da Capa do Livro -->
-        <div class="cover-wrapper">
-          <a href="#leitor-online" title="Clique para abrir o leitor online">
-            <img class="cover-img" src="assets/capa_ebook.png" alt="Capa do E-book: Meninas na Robótica - Guia Prático de Oficinas de Ciências com Micro:bit">
-          </a>
-          <p class="cover-caption">Edição Oficial • Acesso Aberto</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Leitor Online Interativo (Flipbook) -->
-    <section id="leitor-online" style="margin-bottom: 40px;">
-      <h2 class="section-title">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-        Leitura Online Interativa
-      </h2>
-      <div class="reader-card">
-        <iframe allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" class="fp-iframe" style="border: 0px; width: 100%; height: 560px; border-radius: 8px;" src="https://heyzine.com/flip-book/64afb2d9da.html"></iframe>
-      </div>
-    </section>
-
-    <!-- Estrutura das Oficinas -->
-    <h2 class="section-title">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-      Estrutura Didática das Oficinas
-    </h2>
-
-    <div class="grid-oficinas">
-      <div class="oficina-card">
-        <div class="oficina-num">Oficina 00</div>
-        <h3>Formação de Multiplicadoras</h3>
-        <p>Fundamentos de eletrônica, programação em blocos e protagonismo pedagógico para alunas e educadoras.</p>
-      </div>
-
-      <div class="oficina-card">
-        <div class="oficina-num">Oficina 01</div>
-        <h3>Bússola & Telemetria</h3>
-        <p>Investigação do campo magnético terrestre e comunicação remota via radiofrequência entre micro:bits.</p>
-      </div>
-
-      <div class="oficina-card">
-        <div class="oficina-num">Oficina 02</div>
-        <h3>Datalogger & Termologia</h3>
-        <p>Coleta automatizada de séries temporais de temperatura e análise de curvas de equilíbrio térmico.</p>
-      </div>
-
-      <div class="oficina-card">
-        <div class="oficina-num">Oficina 03</div>
-        <h3>Energia Solar & Sustentabilidade</h3>
-        <p>Dimensionamento fotovoltaico, circuitos elétricos com micro:bit e eficiência energética renovável.</p>
-      </div>
-
-      <div class="oficina-card">
-        <div class="oficina-num">Oficina 04</div>
-        <h3>Foguetes de Garrafa PET</h3>
-        <p>Acelerometria, pressão pneumática, apogeu e telemetria de lançamento aeroespacial experimental.</p>
+    <!-- Cabeçalho -->
+    <div class="header">
+      <h1>Meninas na Robótica</h1>
+      <p>Guia prático de oficinas de ciências investigativas com o BBC Micro:bit, voltado ao protagonismo feminino em STEM.</p>
+      <div class="actions">
+        <a class="btn btn-dl" href="Produto_Educacional_Ebook/meninas-robotica-guia.pdf" download="meninas-robotica-guia.pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Baixar PDF
+        </a>
+        <a class="btn btn-repo" href="https://github.com/bjnobrega/oficinas-robotica-microbit" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          Repositório &amp; Códigos
+        </a>
       </div>
     </div>
 
-    <!-- Seção do Pesquisador e Autor -->
-    <section class="author-card">
-      <div class="author-grid">
-        <div class="author-photo-wrapper">
-          <img class="author-photo" src="assets/foto_bruno.png" alt="Bruno José Donato da Nóbrega">
-        </div>
-        <div class="author-bio">
-          <span class="author-tag">Pesquisador & Autor</span>
-          <h2 class="author-name">Bruno José Donato da Nóbrega</h2>
-          <p class="author-affiliation">Biólogo e Professor da Rede Pública • Mestrando em Ensino de Ciências (PROFICIÊNCIAS — UFRJ)</p>
-          <p class="author-desc">
-            Pesquisa a aplicação da Robótica Educacional e do Ensino de Ciências por Investigação (ENCI) para a promoção do protagonismo feminino em STEM na Educação Básica.
-          </p>
-          <div class="author-links">
-            <a class="author-link-btn" href="https://github.com/bjnobrega" target="_blank" rel="noopener noreferrer">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              Perfil no GitHub
-            </a>
-          </div>
-        </div>
+    <!-- Flipbook (herói) -->
+    <div class="flipbook-section">
+      <iframe allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" src="https://heyzine.com/flip-book/64afb2d9da.html"></iframe>
+    </div>
+
+    <!-- Oficinas -->
+    <h2 class="section-title">Oficinas</h2>
+    <div class="oficinas-grid">
+      <div class="oficina">
+        <div class="oficina-num">00</div>
+        <h3>Formação de Multiplicadoras</h3>
+        <p>Fundamentos de eletrônica e programação em blocos para educadoras.</p>
       </div>
-    </section>
-
-    <!-- Metadados / Ficha Técnica -->
-    <section class="metadata-card">
-      <h2 class="section-title" style="margin-top: 0;">Ficha Técnica do Produto</h2>
-      
-      <div class="metadata-grid">
-        <div class="meta-item">
-          <h4>Autor</h4>
-          <p>Bruno José Donato da Nóbrega</p>
-        </div>
-
-        <div class="meta-item">
-          <h4>Instituição</h4>
-          <p>UFRJ / PROFICIÊNCIAS</p>
-        </div>
-
-        <div class="meta-item">
-          <h4>Público-Alvo</h4>
-          <p>Ensino Fundamental II e Médio</p>
-        </div>
-
-        <div class="meta-item">
-          <h4>Licença de Uso</h4>
-          <p>CC BY-NC-SA 4.0 (Acesso Aberto)</p>
-        </div>
+      <div class="oficina">
+        <div class="oficina-num">01</div>
+        <h3>Bússola &amp; Telemetria</h3>
+        <p>Campo magnético e comunicação via rádio entre micro:bits.</p>
       </div>
-
-      <!-- Como Citar -->
-      <h2 class="section-title" style="margin-top: 28px; font-size: 1.1rem;">Como Citar (ABNT)</h2>
-      <div class="citation-box">
-        <button class="copy-btn" onclick="copyCitation()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          <span id="copy-label">Copiar</span>
-        </button>
-        <pre id="citation-text">NÓBREGA, Bruno José Donato da. Meninas na Robótica: Guia Prático de Oficinas de Ciências com o Micro:bit. 2026. Produto Educacional (Mestrado Profissional em Ensino de Ciências - PROFICIÊNCIAS) – Universidade Federal do Rio de Janeiro, Rio de Janeiro, 2026. Disponível em: https://github.com/bjnobrega/oficinas-robotica-microbit.</pre>
+      <div class="oficina">
+        <div class="oficina-num">02</div>
+        <h3>Datalogger Térmico</h3>
+        <p>Séries temporais de temperatura e curvas de equilíbrio térmico.</p>
       </div>
-    </section>
-
-    <!-- Rodapé Institucional -->
-    <footer>
-      <div class="footer-logos">
-        <img class="footer-logo" src="assets/marca-ufrj-horizontal-positiva.png" alt="UFRJ">
-        <img class="footer-logo" src="assets/logo_2.png" alt="Meninas nas Exatas / PROFICIÊNCIAS">
+      <div class="oficina">
+        <div class="oficina-num">03</div>
+        <h3>Energia Solar</h3>
+        <p>Circuitos fotovoltaicos e eficiência energética renovável.</p>
       </div>
-      <p>Desenvolvido no âmbito do projeto <strong>Meninas nas Exatas</strong> • UFRJ — Rio de Janeiro, 2026.</p>
-      <p style="margin-top: 6px;">Código-fonte e material sob licença Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional.</p>
-    </footer>
+      <div class="oficina">
+        <div class="oficina-num">04</div>
+        <h3>Foguetes de Garrafa PET</h3>
+        <p>Acelerometria, pressão pneumática e telemetria de lançamento.</p>
+      </div>
+    </div>
+
+    <!-- Autor -->
+    <div class="author">
+      <img src="assets/foto_bruno.png" alt="Bruno Nóbrega">
+      <div class="author-info">
+        <h3>Bruno José Donato da Nóbrega</h3>
+        <div class="role">Biólogo e Professor da Rede Pública • Mestrando em Ensino de Ciências, PROFICIÊNCIAS — UFRJ</div>
+        <div class="desc">Pesquisa Robótica Educacional e Ensino por Investigação para promoção do protagonismo feminino em STEM.</div>
+      </div>
+    </div>
+
+    <!-- Citação ABNT -->
+    <div class="cite-box">
+      <button class="copy-btn" onclick="copyCitation()"><span id="copy-label">Copiar</span></button>
+      <div class="label">Como Citar (ABNT)</div>
+      <pre id="citation-text">NÓBREGA, Bruno José Donato da. Meninas na Robótica: Guia Prático de Oficinas de Ciências com o Micro:bit. 2026. Produto Educacional (Mestrado Profissional em Ensino de Ciências - PROFICIÊNCIAS) – Universidade Federal do Rio de Janeiro, Rio de Janeiro, 2026. Disponível em: https://github.com/bjnobrega/oficinas-robotica-microbit.</pre>
+    </div>
 
   </main>
 
+  <footer>
+    Projeto Meninas nas Exatas • UFRJ — 2026 · Material sob licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+  </footer>
+
   <script>
     function copyCitation() {
-      const text = document.getElementById('citation-text').innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        const label = document.getElementById('copy-label');
-        label.innerText = 'Copiado!';
-        setTimeout(() => { label.innerText = 'Copiar'; }, 2000);
+      const t = document.getElementById('citation-text').innerText;
+      navigator.clipboard.writeText(t).then(() => {
+        const l = document.getElementById('copy-label');
+        l.innerText = 'Copiado!';
+        setTimeout(() => { l.innerText = 'Copiar'; }, 2000);
       });
     }
   </script>
