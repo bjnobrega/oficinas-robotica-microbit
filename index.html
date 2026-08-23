@@ -167,21 +167,24 @@
       padding: 0 14px;
     }
 
-    /* ── Header ── */
+    /* ── Header Minimalista ── */
     .header {
       text-align: center;
-      padding: 24px 0 16px;
+      padding: 18px 0 14px;
     }
     .header h1 {
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 6px;
+      display: none; /* Escondido, título movido pro topo */
     }
     .header p {
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
-      max-width: 520px;
+      max-width: 780px;
       margin: 0 auto;
+      font-weight: 400;
+      letter-spacing: 0.2px;
     }
 
     /* ── Flipbook ── */
@@ -368,7 +371,7 @@
   <!-- Topo: logo UFRJ | link HOME | logo Campus -->
   <nav class="topbar">
     <img src="assets/marca-ufrj-horizontal-positiva.png" alt="UFRJ">
-    <a class="topbar-center" href="#">Produto Educacional · Mestrado Profissional</a>
+    <a class="topbar-center" href="#" title="Voltar ao topo">Meninas na Robótica — Produto Educacional</a>
     <img src="assets/logo_2.png" alt="PROFICIÊNCIAS">
   </nav>
 
@@ -392,9 +395,9 @@
 
   <main class="wrap">
 
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho Minimalista -->
     <div class="header">
-      <h1>Meninas na Robótica</h1>
+      <h1 style="display:none;">Meninas na Robótica — Produto Educacional</h1>
       <p>Guia prático de oficinas de ciências investigativas com o BBC Micro:bit, voltado ao protagonismo feminino em STEM.</p>
     </div>
 
