@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meninas na Robótica: Guia Prático de Oficinas com Micro:bit | Produto Educacional UFRJ</title>
+  
+  <!-- Metatags SEO e Redes Sociais -->
+  <meta name="description" content="Produto Educacional de Mestrado Profissional: Guia prático de oficinas de ciências investigativas com micro:bit voltadas ao protagonismo feminino em STEM.">
+  <meta name="author" content="Bruno José Donato da Nóbrega">
+  <meta property="og:title" content="Meninas na Robótica: Guia de Oficinas de Ciências com Micro:bit">
+  <meta property="og:description" content="Guia completo de oficinas investigativas com BBC Micro:bit voltadas ao protagonismo feminino em STEM. UFRJ - PROFICIÊNCIAS.">
+  <meta property="og:type" content="book">
+
+  <style>
+    :root {
+      --primary: #582be8;
+      --primary-hover: #431db8;
+      --primary-light: #f1edff;
+      --secondary: #0f172a;
+      --accent: #e11d48;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --radius: 12px;
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    /* Top Banner Institucional */
+    .top-banner {
+      background: linear-gradient(90deg, #1e1b4b, #312e81);
+      color: #e0e7ff;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+    .top-banner span.badge {
+      background: rgba(255, 255, 255, 0.18);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Container Principal */
+    .container {
+      max-width: 900px;
+      margin: 40px auto 0;
+      padding: 0 20px;
+    }
+
+    /* Hero Card */
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 48px 40px;
+      margin-bottom: 32px;
+    }
+
+    .tag-product {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      line-height: 1.25;
+      color: var(--secondary);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    p.lead-subtitle {
+      font-size: 1.15rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    p.abstract {
+      color: var(--text);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* Action Buttons */
+    .actions-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 26px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(88, 43, 232, 0.3);
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--secondary);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-github {
+      background: #0f172a;
+      color: #ffffff;
+    }
+    .btn-github:hover {
+      background: #1e293b;
+    }
+
+    /* Grid de Oficinas */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 36px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .grid-oficinas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .oficina-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .oficina-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+    .oficina-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .oficina-card h3 {
+      font-size: 1.05rem;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+    .oficina-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Metadados / Ficha Técnica */
+    .metadata-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 32px;
+    }
+
+    .metadata-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .meta-item h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .meta-item p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    /* Box de Citação ABNT */
+    .citation-box {
+      background: #f1f5f9;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      padding: 20px;
+      position: relative;
+    }
+    .citation-box pre {
+      font-family: inherit;
+      font-size: 0.88rem;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.6;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .copy-btn:hover {
+      background: #e2e8f0;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding-top: 30px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsividade */
+    @media (max-width: 640px) {
+      .hero-card { padding: 32px 20px; }
+      h1 { font-size: 1.65rem; }
+      .actions-group { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .top-banner { flex-direction: column; gap: 4px; font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Banner Acadêmico -->
+  <div class="top-banner">
+    <span class="badge">Produto Educacional</span>
+    <span>Universidade Federal do Rio de Janeiro (UFRJ) • Mestrado Profissional PROFICIÊNCIAS</span>
+  </div>
+
+  <main class="container">
+    
+    <!-- Hero Principal -->
+    <section class="hero-card">
+      <div class="tag-product">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        Guia Metodológico Aberto
+      </div>
+      
+      <h1>Meninas na Robótica</h1>
+      <p class="lead-subtitle">Guia Prático de Oficinas de Ciências Investigativas com o Micro:bit</p>
+      
+      <p class="abstract">
+        Este e-book apresenta uma sequência didática fundamentada no Ensino de Ciências por Investigação (ENCI) e na Aprendizagem Criativa, voltada à promoção do <strong>protagonismo feminino em STEM</strong>. O material reúne roteiros completos, códigos MakeCode/JavaScript, desafios práticos e materiais de apoio para aplicação da placa BBC Micro:bit em salas de aula da Educação Básica.
+      </p>
+
+      <!-- Botões de Ação -->
+      <div class="actions-group">
+        <a class="btn btn-primary" href="Produto_Educacional_Ebook/meninas-na-robotica-guia-oficinas-microbit.pdf" download="meninas-na-robotica-guia-oficinas-microbit.pdf">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Baixar E-book (PDF Completo)
+        </a>
+
+        <a class="btn btn-secondary" href="Produto_Educacional_Ebook/meninas-na-robotica-guia-oficinas-microbit.pdf" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          Ler Online
+        </a>
+
+        <a class="btn btn-github" href="https://github.com/bjnobrega/oficinas-robotica-microbit" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          Repositório & Códigos
+        </a>
+      </div>
+    </section>
+
+    <!-- Estrutura das Oficinas -->
+    <h2 class="section-title">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      Estrutura Didática das Oficinas
+    </h2>
+
+    <div class="grid-oficinas">
+      <div class="oficina-card">
+        <div class="oficina-num">Oficina 00</div>
+        <h3>Formação de Multiplicadoras</h3>
+        <p>Fundamentos de eletrônica, programação em blocos e protagonismo pedagógico para alunas e educadoras.</p>
+      </div>
+
+      <div class="oficina-card">
+        <div class="oficina-num">Oficina 01</div>
+        <h3>Bússola & Telemetria</h3>
+        <p>Investigação do campo magnético terrestre e comunicação remota via radiofrequência entre micro:bits.</p>
+      </div>
+
+      <div class="oficina-card">
+        <div class="oficina-num">Oficina 02</div>
+        <h3>Datalogger & Termologia</h3>
+        <p>Coleta automatizada de séries temporais de temperatura e análise de curvas de equilíbrio térmico.</p>
+      </div>
+
+      <div class="oficina-card">
+        <div class="oficina-num">Oficina 03</div>
+        <h3>Energia Solar & Sustentabilidade</h3>
+        <p>Dimensionamento fotovoltaico, circuitos elétricos com micro:bit e eficiência energética renovável.</p>
+      </div>
+
+      <div class="oficina-card">
+        <div class="oficina-num">Oficina 04</div>
+        <h3>Foguetes de Garrafa PET</h3>
+        <p>Acelerometria, pressão pneumática, apogeu e telemetria de lançamento aeroespacial experimental.</p>
+      </div>
+    </div>
+
+    <!-- Metadados / Ficha Técnica -->
+    <section class="metadata-card">
+      <h2 class="section-title" style="margin-top: 0;">Ficha Técnica do Produto</h2>
+      
+      <div class="metadata-grid">
+        <div class="meta-item">
+          <h4>Autor</h4>
+          <p>Bruno José Donato da Nóbrega</p>
+        </div>
+
+        <div class="meta-item">
+          <h4>Instituição</h4>
+          <p>UFRJ / PROFICIÊNCIAS</p>
+        </div>
+
+        <div class="meta-item">
+          <h4>Público-Alvo</h4>
+          <p>Ensino Fundamental II e Médio</p>
+        </div>
+
+        <div class="meta-item">
+          <h4>Licença de Uso</h4>
+          <p>CC BY-NC-SA 4.0 (Acesso Aberto)</p>
+        </div>
+      </div>
+
+      <!-- Como Citar -->
+      <h2 class="section-title" style="margin-top: 28px; font-size: 1.1rem;">Como Citar (ABNT)</h2>
+      <div class="citation-box">
+        <button class="copy-btn" onclick="copyCitation()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span id="copy-label">Copiar</span>
+        </button>
+        <pre id="citation-text">NÓBREGA, Bruno José Donato da. Meninas na Robótica: Guia Prático de Oficinas de Ciências com o Micro:bit. 2026. Produto Educacional (Mestrado Profissional em Ensino de Ciências - PROFICIÊNCIAS) – Universidade Federal do Rio de Janeiro, Rio de Janeiro, 2026. Disponível em: https://github.com/bjnobrega/oficinas-robotica-microbit.</pre>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>Desenvolvido no âmbito do projeto <strong>Meninas nas Exatas</strong> • UFRJ — Rio de Janeiro, 2026.</p>
+      <p style="margin-top: 6px;">Código-fonte e material sob licença Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional.</p>
+    </footer>
+
+  </main>
+
+  <script>
+    function copyCitation() {
+      const text = document.getElementById('citation-text').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const label = document.getElementById('copy-label');
+        label.innerText = 'Copiado!';
+        setTimeout(() => { label.innerText = 'Copiar'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
