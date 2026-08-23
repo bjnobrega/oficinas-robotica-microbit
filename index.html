@@ -82,6 +82,8 @@
       transition: color 0.15s;
     }
     .topbar-center:hover { color: var(--text); }
+    
+    /* ── Botão Tema (Flutuante Inferior Direito) ── */
     .theme-toggle {
       position: fixed;
       bottom: 20px;
@@ -111,6 +113,47 @@
     [data-theme="light"] .icon-sun { display: none; }
     [data-theme="light"] .icon-moon { display: block; }
 
+    /* ── Barra Flutuante de Ações (Pílula) ── */
+    .floating-actions {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 998;
+      display: flex;
+      gap: 8px;
+      background: var(--surface);
+      padding: 6px;
+      border-radius: 40px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      border: 1px solid var(--border);
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 18px;
+      border-radius: 30px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-dl {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+    }
+    .btn-dl:hover { opacity: 0.85; transform: scale(1.02); }
+    .btn-repo {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-repo:hover { border-color: var(--border-hover); background: var(--surface); transform: scale(1.02); }
+
     /* ── Container ── */
     .wrap {
       max-width: 920px;
@@ -121,7 +164,7 @@
     /* ── Header ── */
     .header {
       text-align: center;
-      padding: 28px 0 20px;
+      padding: 24px 0 16px;
     }
     .header h1 {
       font-size: 1.5rem;
@@ -132,37 +175,8 @@
       font-size: 0.88rem;
       color: var(--text-muted);
       max-width: 520px;
-      margin: 0 auto 16px;
+      margin: 0 auto;
     }
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-items: stretch;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 11px 18px;
-      border-radius: 8px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.15s ease;
-    }
-    .btn-dl {
-      background: var(--btn-bg);
-      color: var(--btn-text);
-    }
-    .btn-dl:hover { opacity: 0.85; }
-    .btn-repo {
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .btn-repo:hover { border-color: var(--border-hover); }
 
     /* ── Flipbook ── */
     .flipbook-section {
@@ -301,12 +315,24 @@
     /* ── Rodapé ── */
     footer {
       text-align: center;
-      padding: 20px 14px 32px;
+      padding: 20px 14px 80px; /* Padding extra para não conflitar com a barra flutuante */
       font-size: 0.72rem;
       color: var(--text-faint);
       border-top: 1px solid var(--border);
     }
     footer a { color: var(--text-muted); }
+
+    /* ── Mobile Especial (< 480px) ── */
+    @media (max-width: 480px) {
+      .floating-actions .btn {
+        padding: 9px 12px;
+        font-size: 0.78rem;
+      }
+      /* Sobe o toggle do tema para não encostar na pílula */
+      .theme-toggle {
+        bottom: 84px; 
+      }
+    }
 
     /* ── Tablet (≥ 540px) ── */
     @media (min-width: 540px) {
@@ -314,7 +340,6 @@
       .topbar img { height: 36px; }
       .topbar-center { font-size: 0.66rem; letter-spacing: 1px; }
       .header h1 { font-size: 1.65rem; }
-      .actions { flex-direction: row; justify-content: center; align-items: center; }
       .flipbook-section iframe { height: 500px; }
       .oficinas-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -325,7 +350,7 @@
       .topbar { padding: 14px 28px; }
       .topbar img { height: 42px; }
       .topbar-center { font-size: 0.72rem; letter-spacing: 1.2px; }
-      .header { padding: 36px 0 24px; }
+      .header { padding: 30px 0 24px; }
       .header h1 { font-size: 1.8rem; }
       .flipbook-section iframe { height: 580px; }
       .oficinas-grid { grid-template-columns: repeat(3, 1fr); }
@@ -341,11 +366,23 @@
     <img src="assets/logo_2.png" alt="PROFICIÊNCIAS">
   </nav>
 
-  <!-- Botão Flutuante Dark Mode -->
+  <!-- Botão Flutuante Dark Mode (Inferior Direito) -->
   <button class="theme-toggle" aria-label="Alternar tema claro/escuro" onclick="toggleTheme()">
     <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
   </button>
+
+  <!-- Pílula Flutuante de Ações (Centro Inferior) -->
+  <div class="floating-actions">
+    <a class="btn btn-dl" href="Produto_Educacional_Ebook/meninas-robotica-guia.pdf" download="meninas-robotica-guia.pdf">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Baixar PDF
+    </a>
+    <a class="btn btn-repo" href="https://github.com/bjnobrega/oficinas-robotica-microbit" target="_blank" rel="noopener noreferrer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      Repositório
+    </a>
+  </div>
 
   <main class="wrap">
 
@@ -353,16 +390,6 @@
     <div class="header">
       <h1>Meninas na Robótica</h1>
       <p>Guia prático de oficinas de ciências investigativas com o BBC Micro:bit, voltado ao protagonismo feminino em STEM.</p>
-      <div class="actions">
-        <a class="btn btn-dl" href="Produto_Educacional_Ebook/meninas-robotica-guia.pdf" download="meninas-robotica-guia.pdf">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Baixar PDF
-        </a>
-        <a class="btn btn-repo" href="https://github.com/bjnobrega/oficinas-robotica-microbit" target="_blank" rel="noopener noreferrer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          Repositório
-        </a>
-      </div>
     </div>
 
     <!-- Flipbook (herói) -->
