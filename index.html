@@ -1,258 +1,344 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meninas na Robótica — E-book | UFRJ</title>
   <meta name="description" content="E-book: Guia prático de oficinas de ciências investigativas com micro:bit voltadas ao protagonismo feminino em STEM. Produto Educacional — UFRJ / PROFICIÊNCIAS.">
   <meta name="author" content="Bruno José Donato da Nóbrega">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bjnobrega.github.io/oficinas-robotica-microbit/">
+  <link rel="icon" href="assets/capa_ebook.png" type="image/png">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Meninas na Robótica — E-book">
   <meta property="og:description" content="Oficinas de ciências com BBC Micro:bit voltadas ao protagonismo feminino em STEM.">
-  <meta property="og:image" content="assets/capa_ebook.png">
+  <meta property="og:image" content="https://bjnobrega.github.io/oficinas-robotica-microbit/assets/capa_ebook.png">
+  <meta property="og:url" content="https://bjnobrega.github.io/oficinas-robotica-microbit/">
   <meta property="og:type" content="book">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ── Tokens de cor ── */
+    [data-theme="light"] {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --text-muted: #6e6e73;
+      --text-faint: #86868b;
+      --border: #e5e5e7;
+      --border-hover: #c4c4c7;
+      --btn-bg: #1d1d1f;
+      --btn-text: #ffffff;
+      --shadow: 0 1px 6px rgba(0,0,0,0.04);
+    }
+    [data-theme="dark"] {
+      --bg: #141414;
+      --surface: #1e1e1e;
+      --text: #e8e8ed;
+      --text-muted: #a1a1a6;
+      --text-faint: #7c7c82;
+      --border: #2e2e2e;
+      --border-hover: #444;
+      --btn-bg: #e8e8ed;
+      --btn-text: #141414;
+      --shadow: 0 1px 6px rgba(0,0,0,0.2);
+    }
+
+    /* ── Reset & base (mobile-first) ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f5f5f7;
-      color: #1d1d1f;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
+      transition: background 0.25s, color 0.25s;
     }
 
-    /* ── Topo com logos ── */
+    /* ── Topbar (sticky, mobile-first) ── */
     .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 28px;
-      background: #fff;
-      border-bottom: 1px solid #e5e5e7;
+      gap: 8px;
+      padding: 10px 14px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s;
     }
-    .topbar img { height: 42px; }
+    .topbar img { height: 30px; }
     .topbar-center {
-      font-size: 0.72rem;
+      font-size: 0.6rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: #86868b;
+      letter-spacing: 0.8px;
+      color: var(--text-faint);
+      text-decoration: none;
+      text-align: center;
+      line-height: 1.3;
+      transition: color 0.15s;
     }
+    .topbar-center:hover { color: var(--text); }
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 7px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .theme-toggle:hover { color: var(--text); border-color: var(--border-hover); }
+    .theme-toggle svg { display: block; }
+    [data-theme="dark"] .icon-sun { display: block; }
+    [data-theme="dark"] .icon-moon { display: none; }
+    [data-theme="light"] .icon-sun { display: none; }
+    [data-theme="light"] .icon-moon { display: block; }
 
     /* ── Container ── */
     .wrap {
       max-width: 920px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 14px;
     }
 
-    /* ── Cabeçalho do e-book ── */
+    /* ── Header ── */
     .header {
       text-align: center;
-      padding: 36px 0 24px;
+      padding: 28px 0 20px;
     }
     .header h1 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: #1d1d1f;
       margin-bottom: 6px;
     }
     .header p {
-      font-size: 0.95rem;
-      color: #6e6e73;
-      max-width: 560px;
-      margin: 0 auto 20px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 16px;
     }
     .actions {
       display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
     }
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      padding: 10px 20px;
+      padding: 11px 18px;
       border-radius: 8px;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.15s ease;
     }
     .btn-dl {
-      background: #1d1d1f;
-      color: #fff;
+      background: var(--btn-bg);
+      color: var(--btn-text);
     }
-    .btn-dl:hover { background: #333; }
+    .btn-dl:hover { opacity: 0.85; }
     .btn-repo {
-      background: #fff;
-      color: #1d1d1f;
-      border: 1px solid #d2d2d7;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
     }
-    .btn-repo:hover { background: #f5f5f7; border-color: #bbb; }
+    .btn-repo:hover { border-color: var(--border-hover); }
 
-    /* ── Flipbook (herói da página) ── */
+    /* ── Flipbook ── */
     .flipbook-section {
-      background: #fff;
-      border-radius: 12px;
-      border: 1px solid #e5e5e7;
-      padding: 10px;
-      margin-bottom: 40px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      background: var(--surface);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 6px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+      transition: background 0.25s, border-color 0.25s;
     }
     .flipbook-section iframe {
       width: 100%;
-      height: 580px;
+      height: 420px;
       border: 0;
-      border-radius: 8px;
+      border-radius: 7px;
       display: block;
     }
 
-    /* ── Seções de conteúdo ── */
+    /* ── Section title ── */
     .section-title {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: #1d1d1f;
-      margin: 0 0 16px;
+      margin: 0 0 12px;
     }
 
-    /* ── Grade de oficinas ── */
+    /* ── Oficinas ── */
     .oficinas-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 12px;
-      margin-bottom: 40px;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 32px;
     }
     .oficina {
-      background: #fff;
-      border: 1px solid #e5e5e7;
-      border-radius: 10px;
-      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      transition: background 0.25s, border-color 0.25s;
     }
     .oficina-num {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 800;
-      color: #6e6e73;
+      color: var(--text-faint);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .oficina h3 {
-      font-size: 0.95rem;
-      color: #1d1d1f;
-      margin-bottom: 4px;
+      font-size: 0.9rem;
+      margin-bottom: 3px;
     }
     .oficina p {
-      font-size: 0.82rem;
-      color: #86868b;
-      line-height: 1.45;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
     }
 
     /* ── Autor ── */
     .author {
       display: flex;
       align-items: center;
-      gap: 18px;
-      background: #fff;
-      border: 1px solid #e5e5e7;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 40px;
+      gap: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 32px;
+      transition: background 0.25s, border-color 0.25s;
     }
     .author img {
-      width: 72px;
-      height: 72px;
-      border-radius: 8px;
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
       object-fit: cover;
       flex-shrink: 0;
     }
     .author-info h3 {
-      font-size: 0.95rem;
-      color: #1d1d1f;
+      font-size: 0.9rem;
       margin-bottom: 2px;
     }
     .author-info .role {
-      font-size: 0.82rem;
-      color: #6e6e73;
-      margin-bottom: 4px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 3px;
     }
     .author-info .desc {
-      font-size: 0.82rem;
-      color: #86868b;
-      line-height: 1.45;
+      font-size: 0.78rem;
+      color: var(--text-faint);
+      line-height: 1.4;
     }
 
     /* ── Citação ── */
     .cite-box {
-      background: #fff;
-      border: 1px solid #e5e5e7;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      padding-right: 50px;
+      margin-bottom: 32px;
       position: relative;
+      transition: background 0.25s, border-color 0.25s;
     }
     .cite-box .label {
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      color: #86868b;
-      margin-bottom: 8px;
+      color: var(--text-faint);
+      margin-bottom: 6px;
     }
     .cite-box pre {
       font-family: inherit;
-      font-size: 0.82rem;
-      color: #1d1d1f;
+      font-size: 0.78rem;
+      color: var(--text);
       white-space: pre-wrap;
       word-break: break-word;
-      line-height: 1.5;
+      line-height: 1.45;
     }
     .copy-btn {
       position: absolute;
-      top: 16px;
-      right: 16px;
-      background: #f5f5f7;
-      border: 1px solid #d2d2d7;
-      border-radius: 6px;
-      padding: 4px 10px;
-      font-size: 0.72rem;
+      top: 12px;
+      right: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 3px 8px;
+      font-size: 0.68rem;
       font-weight: 600;
-      color: #1d1d1f;
+      color: var(--text-muted);
       cursor: pointer;
+      transition: background 0.15s, color 0.15s;
     }
-    .copy-btn:hover { background: #e8e8ed; }
+    .copy-btn:hover { color: var(--text); }
 
     /* ── Rodapé ── */
     footer {
       text-align: center;
-      padding: 24px 20px 36px;
-      font-size: 0.78rem;
-      color: #86868b;
-      border-top: 1px solid #e5e5e7;
+      padding: 20px 14px 32px;
+      font-size: 0.72rem;
+      color: var(--text-faint);
+      border-top: 1px solid var(--border);
     }
-    footer a { color: #6e6e73; }
+    footer a { color: var(--text-muted); }
 
-    /* ── Responsivo ── */
-    @media (max-width: 640px) {
-      .topbar { padding: 10px 16px; }
-      .topbar img { height: 32px; }
-      .topbar-center { font-size: 0.62rem; letter-spacing: 0.8px; }
-      .header h1 { font-size: 1.4rem; }
-      .flipbook-section iframe { height: 400px; }
-      .actions { flex-direction: column; align-items: stretch; }
-      .btn { justify-content: center; }
-      .author { flex-direction: column; text-align: center; }
+    /* ── Tablet (≥ 540px) ── */
+    @media (min-width: 540px) {
+      .topbar { padding: 12px 24px; }
+      .topbar img { height: 36px; }
+      .topbar-center { font-size: 0.66rem; letter-spacing: 1px; }
+      .header h1 { font-size: 1.65rem; }
+      .actions { flex-direction: row; justify-content: center; align-items: center; }
+      .flipbook-section iframe { height: 500px; }
+      .oficinas-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── Desktop (≥ 920px) ── */
+    @media (min-width: 920px) {
+      .wrap { padding: 0 20px; }
+      .topbar { padding: 14px 28px; }
+      .topbar img { height: 42px; }
+      .topbar-center { font-size: 0.72rem; letter-spacing: 1.2px; }
+      .header { padding: 36px 0 24px; }
+      .header h1 { font-size: 1.8rem; }
+      .flipbook-section iframe { height: 580px; }
+      .oficinas-grid { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Topo: logo UFRJ à esquerda, logo Campus à direita -->
+  <!-- Topo: logo UFRJ | link HOME | toggle tema + logo Campus -->
   <nav class="topbar">
     <img src="assets/marca-ufrj-horizontal-positiva.png" alt="UFRJ">
-    <span class="topbar-center">Produto Educacional • Mestrado Profissional</span>
-    <img src="assets/logo_2.png" alt="PROFICIÊNCIAS / Campus UFRJ">
+    <a class="topbar-center" href="#">Produto Educacional · Mestrado Profissional</a>
+    <div class="topbar-right">
+      <button class="theme-toggle" aria-label="Alternar tema claro/escuro" onclick="toggleTheme()">
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <img src="assets/logo_2.png" alt="PROFICIÊNCIAS">
+    </div>
   </nav>
 
   <main class="wrap">
@@ -268,14 +354,14 @@
         </a>
         <a class="btn btn-repo" href="https://github.com/bjnobrega/oficinas-robotica-microbit" target="_blank" rel="noopener noreferrer">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          Repositório &amp; Códigos
+          Repositório
         </a>
       </div>
     </div>
 
     <!-- Flipbook (herói) -->
     <div class="flipbook-section">
-      <iframe allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" src="https://heyzine.com/flip-book/64afb2d9da.html"></iframe>
+      <iframe title="E-book Meninas na Robótica — Leitura interativa" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" src="https://heyzine.com/flip-book/64afb2d9da.html"></iframe>
     </div>
 
     <!-- Oficinas -->
@@ -313,7 +399,7 @@
       <img src="assets/foto_bruno.png" alt="Bruno Nóbrega">
       <div class="author-info">
         <h3>Bruno José Donato da Nóbrega</h3>
-        <div class="role">Biólogo e Professor da Rede Pública • Mestrando em Ensino de Ciências, PROFICIÊNCIAS — UFRJ</div>
+        <div class="role">Biólogo e Professor da Rede Pública · Mestrando em Ensino de Ciências, PROFICIÊNCIAS — UFRJ</div>
         <div class="desc">Pesquisa Robótica Educacional e Ensino por Investigação para promoção do protagonismo feminino em STEM.</div>
       </div>
     </div>
@@ -328,10 +414,33 @@
   </main>
 
   <footer>
-    Projeto Meninas nas Exatas • UFRJ — 2026 · Material sob licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    Projeto Meninas nas Exatas · UFRJ — 2026 · Material sob licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>
   </footer>
 
   <script>
+    // Tema: detecta preferência salva ou do sistema
+    (function () {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+      // Escuta mudanças do sistema (se não houver override manual)
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
+    })();
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
     function copyCitation() {
       const t = document.getElementById('citation-text').innerText;
       navigator.clipboard.writeText(t).then(() => {
