@@ -100,12 +100,14 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transition: all 0.2s ease;
+      opacity: 0.35;
+      transition: all 0.3s ease;
     }
     .theme-toggle:hover { 
       color: var(--text); 
       border-color: var(--border-hover);
       transform: scale(1.05);
+      opacity: 1;
     }
     .theme-toggle svg { display: block; }
     [data-theme="dark"] .icon-sun { display: block; }
@@ -127,7 +129,11 @@
       border-radius: 40px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.18);
       border: 1px solid var(--border);
-      transition: background 0.25s, border-color 0.25s;
+      opacity: 0.35;
+      transition: all 0.3s ease;
+    }
+    .floating-actions:hover {
+      opacity: 1;
     }
     .btn {
       display: inline-flex;
