@@ -6,10 +6,11 @@
   <title>Meninas na Robótica: Guia Prático de Oficinas com Micro:bit | Produto Educacional UFRJ</title>
   
   <!-- Metatags SEO e Redes Sociais -->
-  <meta name="description" content="Produto Educacional de Mestrado Profissional: Guia prático de oficinas de ciências investigativas com micro:bit voltadas ao protagonismo feminino em STEM.">
+  <meta name="description" content="Produto Educacional de Mestrado Profissional: Guia prático de oficinas de ciências investigativas com micro:bit voltadas ao protagonismo feminino em STEM. UFRJ - PROFICIÊNCIAS.">
   <meta name="author" content="Bruno José Donato da Nóbrega">
   <meta property="og:title" content="Meninas na Robótica: Guia de Oficinas de Ciências com Micro:bit">
   <meta property="og:description" content="Guia completo de oficinas investigativas com BBC Micro:bit voltadas ao protagonismo feminino em STEM. UFRJ - PROFICIÊNCIAS.">
+  <meta property="og:image" content="assets/capa_ebook.png">
   <meta property="og:type" content="book">
 
   <style>
@@ -24,8 +25,9 @@
       --border: #e2e8f0;
       --text: #1e293b;
       --text-muted: #64748b;
-      --radius: 12px;
+      --radius: 14px;
       --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+      --shadow-cover: 0 16px 36px rgba(88, 43, 232, 0.18), 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -65,9 +67,45 @@
 
     /* Container Principal */
     .container {
-      max-width: 900px;
-      margin: 40px auto 0;
+      max-width: 960px;
+      margin: 36px auto 0;
       padding: 0 20px;
+    }
+
+    /* Barra de Logos Institucionais */
+    .institutional-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .inst-logos-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .inst-logo {
+      height: 48px;
+      width: auto;
+      max-width: 170px;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.04));
+      transition: transform 0.2s ease;
+    }
+    .inst-logo:hover {
+      transform: translateY(-1px);
+    }
+
+    .inst-divider {
+      width: 1px;
+      height: 32px;
+      background-color: var(--border);
     }
 
     /* Hero Card */
@@ -76,8 +114,15 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
-      padding: 48px 40px;
-      margin-bottom: 32px;
+      padding: 40px;
+      margin-bottom: 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 36px;
+      align-items: center;
     }
 
     .tag-product {
@@ -96,34 +141,57 @@
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       line-height: 1.25;
       color: var(--secondary);
       font-weight: 800;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     p.lead-subtitle {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: var(--primary);
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     p.abstract {
       color: var(--text);
-      font-size: 1.02rem;
+      font-size: 1rem;
       line-height: 1.7;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
+    }
+
+    /* Capa do E-book */
+    .cover-wrapper {
+      text-align: center;
+    }
+    .cover-img {
+      width: 100%;
+      max-width: 270px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: var(--shadow-cover);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cover-img:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(88, 43, 232, 0.25);
+    }
+    .cover-caption {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
     }
 
     /* Action Buttons */
     .actions-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
       align-items: center;
-      margin-bottom: 24px;
     }
 
     .btn {
@@ -131,9 +199,9 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 14px 26px;
+      padding: 13px 22px;
       border-radius: 8px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.2s ease;
@@ -168,7 +236,7 @@
       background: #1e293b;
     }
 
-    /* Grid de Oficinas */
+    /* Section Titles */
     .section-title {
       font-size: 1.3rem;
       font-weight: 700;
@@ -179,11 +247,12 @@
       gap: 8px;
     }
 
+    /* Grid de Oficinas */
     .grid-oficinas {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
 
     .oficina-card {
@@ -215,6 +284,15 @@
       font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.5;
+    }
+
+    /* Leitor Online Card */
+    .reader-card {
+      background: var(--card-bg);
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
     /* Metadados / Ficha Técnica */
@@ -280,14 +358,27 @@
       background: #e2e8f0;
     }
 
-    /* Rodapé */
+    /* Rodapé Institucional */
     footer {
       text-align: center;
-      padding-top: 30px;
+      padding-top: 36px;
       font-size: 0.85rem;
       color: var(--text-muted);
       border-top: 1px solid var(--border);
       margin-top: 40px;
+    }
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 18px;
+      opacity: 0.85;
+    }
+    .footer-logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
     }
     footer a {
       color: var(--primary);
@@ -298,11 +389,22 @@
     }
 
     /* Responsividade */
-    @media (max-width: 640px) {
-      .hero-card { padding: 32px 20px; }
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .cover-wrapper {
+        order: -1;
+        margin-bottom: 20px;
+      }
+      .cover-img {
+        max-width: 220px;
+      }
+      .hero-card { padding: 28px 20px; }
       h1 { font-size: 1.65rem; }
       .actions-group { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
+      .institutional-bar { flex-direction: column; align-items: flex-start; gap: 14px; }
       .top-banner { flex-direction: column; gap: 4px; font-size: 0.78rem; }
     }
   </style>
@@ -317,36 +419,60 @@
 
   <main class="container">
     
-    <!-- Hero Principal -->
+    <!-- Hero Principal com Logos e Capa do Ebook -->
     <section class="hero-card">
-      <div class="tag-product">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-        Guia Metodológico Aberto
+      
+      <!-- Barra de Logos Oficiais -->
+      <div class="institutional-bar">
+        <div class="inst-logos-group">
+          <img class="inst-logo" src="assets/marca-ufrj-horizontal-positiva.png" alt="UFRJ - Universidade Federal do Rio de Janeiro">
+          <div class="inst-divider"></div>
+          <img class="inst-logo" src="assets/logo_1.png" alt="Logo Institucional UFRJ">
+          <img class="inst-logo" src="assets/logo_2.png" alt="Logo Projeto Meninas nas Exatas / PROFICIÊNCIAS">
+        </div>
+        
+        <div class="tag-product">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Produto Educacional
+        </div>
       </div>
-      
-      <h1>Meninas na Robótica</h1>
-      <p class="lead-subtitle">Guia Prático de Oficinas de Ciências Investigativas com o Micro:bit</p>
-      
-      <p class="abstract">
-        Este e-book apresenta uma sequência didática fundamentada no Ensino de Ciências por Investigação (ENCI) e na Aprendizagem Criativa, voltada à promoção do <strong>protagonismo feminino em STEM</strong>. O material reúne roteiros completos, códigos MakeCode/JavaScript, desafios práticos e materiais de apoio para aplicação da placa BBC Micro:bit em salas de aula da Educação Básica.
-      </p>
 
-      <!-- Botões de Ação -->
-      <div class="actions-group">
-        <a class="btn btn-primary" href="Produto_Educacional_Ebook/meninas-robotica-guia.pdf" download="meninas-robotica-guia.pdf">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Baixar E-book (PDF Completo)
-        </a>
+      <!-- Grid Hero: Conteúdo Editorial + Capa 3D -->
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>Meninas na Robótica</h1>
+          <p class="lead-subtitle">Guia Prático de Oficinas de Ciências Investigativas com o Micro:bit</p>
+          
+          <p class="abstract">
+            Este e-book apresenta uma sequência didática fundamentada no Ensino de Ciências por Investigação (ENCI) e na Aprendizagem Criativa, voltada à promoção do <strong>protagonismo feminino em STEM</strong>. O material reúne roteiros completos, códigos MakeCode/JavaScript, desafios práticos e materiais de apoio para aplicação da placa BBC Micro:bit em salas de aula da Educação Básica.
+          </p>
 
-        <a class="btn btn-secondary" href="#leitor-online">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-          Ler Online
-        </a>
+          <!-- Botões de Ação -->
+          <div class="actions-group">
+            <a class="btn btn-primary" href="Produto_Educacional_Ebook/meninas-robotica-guia.pdf" download="meninas-robotica-guia.pdf">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Baixar E-book (PDF Completo)
+            </a>
 
-        <a class="btn btn-github" href="https://github.com/bjnobrega/oficinas-robotica-microbit" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-          Repositório & Códigos
-        </a>
+            <a class="btn btn-secondary" href="#leitor-online">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              Ler Online (Flipbook)
+            </a>
+
+            <a class="btn btn-github" href="https://github.com/bjnobrega/oficinas-robotica-microbit" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              Repositório & Códigos
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna da Capa do Livro -->
+        <div class="cover-wrapper">
+          <a href="#leitor-online" title="Clique para abrir o leitor online">
+            <img class="cover-img" src="assets/capa_ebook.png" alt="Capa do E-book: Meninas na Robótica - Guia Prático de Oficinas de Ciências com Micro:bit">
+          </a>
+          <p class="cover-caption">Edição Oficial • Acesso Aberto</p>
+        </div>
       </div>
     </section>
 
@@ -356,7 +482,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
         Leitura Online Interativa
       </h2>
-      <div style="background: var(--card-bg); padding: 12px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow);">
+      <div class="reader-card">
         <iframe allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" class="fp-iframe" style="border: 0px; width: 100%; height: 560px; border-radius: 8px;" src="https://heyzine.com/flip-book/64afb2d9da.html"></iframe>
       </div>
     </section>
@@ -436,8 +562,13 @@
       </div>
     </section>
 
-    <!-- Rodapé -->
+    <!-- Rodapé Institucional -->
     <footer>
+      <div class="footer-logos">
+        <img class="footer-logo" src="assets/marca-ufrj-horizontal-positiva.png" alt="UFRJ">
+        <img class="footer-logo" src="assets/logo_1.png" alt="Instituição">
+        <img class="footer-logo" src="assets/logo_2.png" alt="Meninas nas Exatas">
+      </div>
       <p>Desenvolvido no âmbito do projeto <strong>Meninas nas Exatas</strong> • UFRJ — Rio de Janeiro, 2026.</p>
       <p style="margin-top: 6px;">Código-fonte e material sob licença Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional.</p>
     </footer>
